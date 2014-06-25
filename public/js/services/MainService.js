@@ -1,22 +1,10 @@
-angular.module('MainService', []).factory('Main', ['$http', function($http) {
+angular.module('MainService', []).factory('Main', ['$location', function($http, $location) {
 	return{
-		getSentence: function(){
-
-		}
-	},
-		setSentence: function(sentence){
-			  $http({method: 'POST', url: '/sentence', data: sentence}).
-    success(function(data, status, headers, config) {
-      // this callback will be called asynchronously
-      // when the response is available
-    }).
-    error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-    });
-
-		}
+		
+		goToCreateSentence : function(){
+    		$location.path('/createSentence');
+  		}
 
 	
-
+}
 }]);

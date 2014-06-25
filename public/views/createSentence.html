@@ -1,6 +1,14 @@
-<div  >
-	
-    <input type="text" ng-model="search">
-    <td><a href class="btn btn-default btn-sm" ng-click="saveSentence();">Hinzufügen</a></td>
-	<p>{{ search }}</p>
+<div id = "home" >
+	<form name="createSentence">
+	 Username : <input name ="user" type="text" ng-model="user" required>
+	 <span class="error" ng-show="createSentence.user.$error.required">*</span><br/>
+	 
+	 E-mail :   <input required name ="mail" type="text"  ng-model="mail">
+	 <span class="error" ng-show="createSentence.mail.$error.required">*</span><br/><br/>
+    
+    <input required name = "sentence" type="textbox" id = "sentenceBox" ng-model="sentence">
+    <span class="error" ng-show="createSentence.sentence.$error.required">*</span><br/>
+    <td><a href class="btn btn-default btn-sm" ng-click="saveSentence();" ng-disabled = "!createSentence.$valid" >Speichern</a></td>
+    <span class="error" ng-show="createSentence.$error.required">Bitte füllen sie alle Pflichtfelder aus !</span>
+	<form/>
 </div>

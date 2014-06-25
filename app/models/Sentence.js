@@ -2,28 +2,18 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
   var SentenceSchema = new Schema({
-  sentenceText : String,
-  senseVote : Number,
-  nosenceVote : Number,
-  notSureVote : Number,
-  user : String,
-  submissionDate : Date,
-  mail : String
-});
+    sentenceText : String,
+    user : String,
+    mail : String,
+    submissionDate : Date,
+    senseVote : Number,
+    noSenseVote : Number,
+    notSureVote : Number
+  });
 
 SentenceSchema.statics.findTop5 = function( reqIn, resIn, callback) {
   this.find({},{},{skip:0, limit:5, sort:{senseVoted: -1}}, function(err, data){
-    data.forEach(function(entry){
-      var totalVotes = entry.senseVote + entry.nosenceVote + entry.notSureVote;
       
-      if (totalVotes != 0){
-      entry.percentage = (100/totalVotes) * entry.senseVotes;}
-      else{
-        entry.percentage = 0;
-      }
-      console.log(totalVotes);
-      console.log(entry.percentage);
-    })
     resIn.json(data);
     resIn.end('OK');
   })
@@ -41,6 +31,19 @@ SentenceSchema.statics.vote = function(data, queryIn) {
       
     };
   });  
+};
+
+SentenceSchema.statics.randomSentence = function(reqIn, resIn){
+  this.count(function(err, count){
+    if(err){
+      console.log(err);
+    }
+    var rand = Math.floor(Math.random() * count);
+    this.findOne().skip(rand).exec(function(err, data){
+      resIn.json(data);
+      resIn.end('OK');
+    });
+  }.bind(this));
 };
 
 module.exports = mongoose.model('Sentence', SentenceSchema);

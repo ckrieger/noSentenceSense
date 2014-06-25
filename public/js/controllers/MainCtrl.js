@@ -1,37 +1,17 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope, $http) {
+angular.module('MainCtrl', []).controller('MainController', function($scope, $http, $location) {
+	 // gets the top 5 sentences
+   $http({method: 'POST', url: '/getRandomSentence'}).success(function (data){
+   	$scope.sentence = data;
+   	var totalVotes =$scope.sentence.senseVote +$scope.sentence.noSenseVote +$scope.sentence.notSureVote;
+    if (totalVotes != 0){
+    	$scope.sentence.percentage = (100/totalVotes) *$scope.sentence.noSenseVote;}
+     else {
+        $scope.sentence.percentage = 0;
+     }
+   });
 
-   // gets the top 5 sentences
-   $http({method: 'POST', url: '/getTopFive'}).success(function (data){
-   	var sentences = [];
-   	data.forEach(function(entry){
-    	sentences.push(entry)
-      console.log(entry);
-   	});
-
-   	$scope.sentences = sentences;
-  });
-
-	$scope.vote = function(vote, id){
-    var data = {};
-    data.vote = vote;
-    data.id = id;
-		$http({method: 'POST', url: '/vote', data: data});
-	}; 
-/* $scope.saveSentence = function(){
- 	console.log($scope.search);
- 	var data = {
- 		sentence : $scope.search 
- 	};
- 	
- 	$http({method: 'POST', url: '/sentence', data: data});
- }	*/
-
-
- 
- 	 
-   
-
-   
- 
+   $scope.goToCreateSentence = function(){
+    $location.path('/createSentence');
+  }
 
 });

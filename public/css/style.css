@@ -1,6 +1,6 @@
 
 #bg{
-background: url("../images/body_bg.jpg") no-repeat fixed;
+background: url("../images/body_bg.jpg") no-repeat fixed ;
 background-position: center center;
 background-size: cover ;
 border: 1px solid black;
@@ -13,17 +13,78 @@ left:50%
 }
 
 #outer-wrapper {
-	/*width: 80%;*/
-	/*min-width: 90em;*/
-	background-color: #fff;
-	/*margin: 0 auto;*/
-	padding-top: 4em;
-	border-left: 10px solid #c5e0eb;
-	border-right: 10px solid #c5e0eb;
+background: url("../images/body_bg.jpg") no-repeat fixed;
+background-position: center center;
+background-size: cover ;
+border: 1px solid black;
+position: absolute;
+height: 600px;
+width: 800px;
+margin: -400px -400px ;
+top: 50%;
+left:50%;
 }
 
 #buttons {
+
+margin-top: 200px;
 margin-right: -4px;
 border: 1px solid black;
 }
+
+#sentenceBox{
+	height:100px;
+	width:400px;
+	margin-right :30px;
+
+}
+
+#home{
+ 
+background-position: center center;
+background-size: cover ;
+border: 1px solid black;
+position: absolute;
+height: 300px;
+width: 300px;
+margin: -100px -150px ;
+top: 50%;
+left:50%;
+
+}
+
+#sentence {
+background: white; 
+opacity: .5; 
+filter:Alpha(Opacity=50);
+background-position: center center;
+background-size: cover ;
+border: 1px solid black;
+position: absolute;
+height: 200px;
+width: 300px;
+margin: -150px -150px ;
+top: 50%;
+left:50%;
+
+}
+
+#rating{
+	margin-top : 150px;
+	font-size: 94%; 
+}
+
+#buttonSense{
+	background-image: url("../images/button_sense_bg.png");
+	background-position: center center;
+background-size: cover ;
+}
+
+#logo{
+ background-image: url("../logo.png") ;
+ 	background-position: center center;
+background-size: cover ;
+}
+
+
 

@@ -1,0 +1,23 @@
+
+
+<div>
+	<table class="table" >
+  		<tr ng-repeat="sentence in sentences" ng-controller= "TopFiveController">
+    		<td>
+    			<td>
+    			{{sentence.sentenceText}}
+    			<td>
+    			<button type="button" ng-click= "vote('0', sentence._id)" >Sense</button>
+				<button type="button" ng-click= "vote('1', sentence._id)">Mmmmmh</button>
+				<button type="button" ng-click= "vote('2', sentence._id)">No Sense</button>
+				<td>
+					<p> the sentence makes {{sentence.percentage}} % no sense <p>
+			</td>
+  		</tr>
+	</table>
+</div>
+
+<div > 
+<button type="button" ng-click= "goToCreateSentence()" >Your Sentence !</button>
+<div/>
+
