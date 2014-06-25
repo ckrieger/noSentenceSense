@@ -6,7 +6,10 @@ var mongoose= require('mongoose');
 // configuration ===========================================
 	
 // config files
-var db = require('./config/db');
+
+var mongoUri = 'mongodb://localhost/noSentenceSense';
+console.log("mongoUri: " + mongoUri);
+mongoose.connect(mongoUri);
 
 var port = process.env.PORT || 8080; // set our port
 // mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)

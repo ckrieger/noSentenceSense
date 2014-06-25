@@ -1,1 +1,29 @@
-body { padding-top:30px; }
+
+#bg{
+background: url("../images/body_bg.jpg") no-repeat fixed;
+background-position: center center;
+background-size: cover ;
+border: 1px solid black;
+position: absolute;
+height: 800px;
+width: 800px;
+margin: -400px -400px;
+top: 50%;
+left:50%
+}
+
+#outer-wrapper {
+	/*width: 80%;*/
+	/*min-width: 90em;*/
+	background-color: #fff;
+	/*margin: 0 auto;*/
+	padding-top: 4em;
+	border-left: 10px solid #c5e0eb;
+	border-right: 10px solid #c5e0eb;
+}
+
+#buttons {
+margin-right: -4px;
+border: 1px solid black;
+}
+

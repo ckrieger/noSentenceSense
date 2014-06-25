@@ -1,5 +1,19 @@
-<div class="jumbotron text-center">
-	<h1>Home Page 4 Life</h1>
 
-	<p>{{ tagline }}</p>
+
+<div>
+	<table class="table" >
+  		<tr ng-repeat="sentence in sentences" ng-controller= "MainController">
+    		<td>
+    			<td>
+    			{{sentence.sentenceText}}
+    			<td>
+    			<button type="button" ng-click= "vote('0', sentence._id)" >Sense</button>
+				<button type="button" ng-click= "vote('1', sentence._id)">Mmmmmh</button>
+				<button type="button" ng-click= "vote('2', sentence._id)">No Sense</button>
+				<td>
+					<p> the sentence makes {{sentence.percentage}} % sense <p>
+			</td>
+  		</tr>
+	</table>
 </div>
+
