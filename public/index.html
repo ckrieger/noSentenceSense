@@ -6,9 +6,11 @@
 
 	<title>NoSentenceSense</title>
 
-	<!-- CSS -->
+<!-- 	CSS -->
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+	<link rel="stylesheet" href="css/style.css"> 
+	<link rel="stylesheet" href="css/addbox.css"> 
+	<link rel="stylesheet" href="css/thickbox.css"> 
 
 	<!-- JS -->
 	<script src="libs/angular/angular.min.js"></script>
@@ -24,15 +26,26 @@
 	<script src="js/app.js"></script>
 </head>
 <body  ng-app="sampleApp"  >
-	<div id ="logo">
-	</div>
-	 <div id="outer-wrapper" class="grid-80 prefix-10 grid-parent">
-	 	
-	 	 
-     		<!-- ANGULAR DYNAMIC CONTENT -->
-			<div ng-view></div>
-	    
-	</div>
+<div id="bgpic">
+
+<div id="container" ng-controller= "MainController">
+	 <a><div class="logo"></div></a> <div class="headercontent"><a ng-click="goToTopFive();">Top 5</a><br /><a  ng-click="goToHome()">Zufall</a></div>
+        <hr class="headerline" />
+        
+        <div class="sociallinks"></div>
+        <div class="clearfloat"></div>
+
+        <div ng-view></div>
+        <div class="footer"></div>
+</div>
+
+</div>
+	
+	
+     
+	
 
 </body>
 </html>
+
+

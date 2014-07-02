@@ -1,23 +1,46 @@
 
 
-<div>
+ <div id="box" data-ng-init="refresh()">
 	<table class="table" >
   		<tr ng-repeat="sentence in sentences" ng-controller= "TopFiveController">
     		<td>
     			<td>
-    			{{sentence.sentenceText}}
-    			<td>
-    			<button type="button" ng-click= "vote('0', sentence._id)" >Sense</button>
-				<button type="button" ng-click= "vote('1', sentence._id)">Mmmmmh</button>
-				<button type="button" ng-click= "vote('2', sentence._id)">No Sense</button>
-				<td>
-					<p> the sentence makes {{sentence.percentage}} % no sense <p>
-			</td>
+    			
+	<div class="nosensearea">
+		<div class="sentence"  itemprop="description">
+			"{{sentence.sentenceText}}"
+		</div>
+	</div>
+	<div class="sentenceinfo">
+		<div class="infotext">
+          		the sentence makes </br>
+          		{{sentence.percentage}} % no sense
+        </div>
+    </div>
+    <div class="squarebuttons"><a class="shuffle"></a><a  class="top10"></a></div>
+	<div class="clearfloat"></div>
+	<div class="votebutton">
+		<div class="share">Teilen auf 
+				<a class="sharelink" href="http://www.facebook.com/sharer.php?u=www.nosentencesense.com/?" target="_blank"> Facebook</a> &middot; 
+				<a class="sharelink" href="http://twitter.com/share?text=<?php echo $controller->prepareStringforTwitter($Sentence->getSentenceText());?>+%0Ahttp://www.nosentenceSense.de/" target="_blank">Twitter</a> &middot; 
+				<a class="sharelink" href="https://plus.google.com/share?url=www.nosentencesense.com/?id=" target="_blank">Google+</a>
+		</div> 
+        <div class="autor">Made by <a  class="sharelink">{{sentence.user}} </a></div> 
+		<div class="clearfloat"></div>
+        <div class ="form-actions">
+        	<button class="btn btn-primary " ng-click= "vote('0', sentence._id)">Sense</button>
+        	<button class="btn btn-primary " ng-click= "vote('1', sentence._id)">Mmmmh</button>
+        	<button class="btn btn-primary " ng-click= "vote('2', sentence._id)">No Sense</button>
+        </div>
+        	<div class="melden"><a  class="iframe1 claimlink">Satz melden!</a></div>
+        </div>
+        
+		<div class="postsentence"><div class="center infotext"><a  class="iframe postlink" ng-click="goToCreateSentence();">Your Sentence!</a></div>
+	</div>
+ 
+    			
   		</tr>
 	</table>
 </div>
 
-<div > 
-<button type="button" ng-click= "goToCreateSentence()" >Your Sentence !</button>
-<div/>
 

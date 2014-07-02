@@ -1,4 +1,37 @@
-<div id = "home" >
+<form class="form-horizontal" role="form" name = "createSentence">
+  <div class="form-group">
+  </br>
+    <label for="inputAlias" class="col-sm-2 control-label">Alias</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="alias" placeholder="Alias" ng-model="user" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputE-mail" class="col-sm-2 control-label">E-Mail</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="email" placeholder="Email" ng-model="mail" required>
+     
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputSentence" class="col-sm-2 control-label">Your Sentence</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="5" placeholder= "Your Sentence"  ng-model="sentence" required></textarea>    
+  	</div> 
+  </div>
+ <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" ng-click="saveSentence();" ng-disabled = "!createSentence.$valid">Abschicken</button>
+       <span class="error" ng-show="createSentence.$error.required">Bitte füllen sie alle Pflichtfelder aus !</span>
+    </div>
+  </div>
+</form>
+
+
+
+
+
+<!-- <div id = "home" >
 	<form name="createSentence">
 	 Username : <input name ="user" type="text" ng-model="user" required>
 	 <span class="error" ng-show="createSentence.user.$error.required">*</span><br/>
@@ -11,4 +44,78 @@
     <td><a href class="btn btn-default btn-sm" ng-click="saveSentence();" ng-disabled = "!createSentence.$valid" >Speichern</a></td>
     <span class="error" ng-show="createSentence.$error.required">Bitte füllen sie alle Pflichtfelder aus !</span>
 	<form/>
-</div>
+</div> -->
+
+<!-- <div class="overlay">
+    
+    	<div class="headline">You make <strong>no sentence sense</strong></div>
+    	<form name="createSentence">
+		<table  width="600" cellpadding="0" cellspacing="0" border="0">
+        	<tr>
+            	<td width="100" valign="top"><span class="preinput dark">Dein Satz:</span></td>
+                <td width="400"><textarea style='border:1px solid #777777; width:100%;font:16px arial;' name='sentence' rows='9' id='sentence' ng-model="sentence" required></textarea>
+                <span class="error" ng-show="createSentence.mail.$error.required">*</span></td>
+                
+            </tr>
+            
+            <tr height="10">
+            	<td width="100">&nbsp;</td>
+                <td width="400">&nbsp;</td>
+                <td width="100">&nbsp;</td>
+            </tr>
+            
+            <tr>
+            	<td width="100" valign="middle"><span class="preinput dark">Alias:</span></td>
+                <td width="400"><input style='border:1px solid #777777;height:40px; width:100%;font:16px arial;' type='text' size='50' name='user' value='' id='user' ng-model="user" required></td>
+                 <span class="error" ng-show="createSentence.user.$error.required">*</span>
+                
+            </tr>
+            
+            <tr height="10">
+            	<td width="100">&nbsp;</td>
+                <td width="400">&nbsp;</td>
+                <td width="100">&nbsp;</td>
+            </tr>
+            
+            <tr>
+            	<td width="100" valign="middle"><span class="preinput dark">eMail:</span></td>
+                <td width="400"><input style='border:1px solid #777777;height:40px; width:100%;font:16px arial;' type='text' size='50' name='mailfrom' value='' id='mailfrom' type="text"  ng-model="mail" required>
+                <span class="error" ng-show="createSentence.mail.$error.required">*</span></td>
+                <td width="100">&nbsp;</td>
+            </tr>
+            
+            <tr height="10">
+            	<td width="100">&nbsp;</td>
+                <td width="400">&nbsp;</td>
+                <td width="100">&nbsp;</td>
+            </tr>
+            
+            <tr>
+            	<td width="100" valign="middle">&nbsp;</td>
+                <td width="400"><span class="smalltext light">Deine eMail wird ausschließlich dafür verwendet, um Dich im krassen Fall eines Hauptgewinns zu konaktieren. Das kann durchaus vorkommen, wenn Dein Satz von anderen als total sinnlos eingestuft wird und er der sinnloseste Satz innerhalb eines bestimmten Zeitraums wird. Wir geben Deine Daten NICHT(!) weiter - versprochen!</span></td>
+                <td width="100">&nbsp;</td>
+            </tr>
+            
+            <tr height="40">
+            	<td width="100">&nbsp;</td>
+                <td width="400">&nbsp;</td>
+                <td width="100">&nbsp;</td>
+            </tr>
+            
+            
+            <tr height="10">
+            	<td width="100">&nbsp;</td>
+                <td width="400">&nbsp;</td>
+                <td width="100">&nbsp;</td>
+            </tr>
+            
+            <tr>
+            	<td width="100" valign="middle">&nbsp;</td>
+                <td width="400"><div><a  href class="btn btn-default " ng-click="saveSentence();" ng-disabled = "!createSentence.$valid">Abschicken</a>
+                     <span class="error" ng-show="createSentence.$error.required">Bitte füllen sie alle Felder aus !</span></div></td>
+           
+                <td width="100">&nbsp;</td>
+            </tr>
+        </table>
+    </form>
+    </div> -->
