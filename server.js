@@ -2,6 +2,8 @@
 var express = require('express');
 var app     = express();
 var mongoose= require('mongoose');
+var session = require('express-session'),
+    uuid = require('node-uuid');
 
 // configuration ===========================================
 	
@@ -13,6 +15,11 @@ mongoose.connect(mongoUri);
 
 var port = process.env.PORT || 8080; // set our port
 // mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
+// 
+
+app.use(session({ genid: function(req) {
+                       	return uuid.v1()}, 
+  				  secret : 'scienceBitch'}));
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public')); 	// set the static files location /public/img will be /img for users

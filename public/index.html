@@ -1,51 +1,87 @@
 <!doctype html>
-<html lang="en" style = " height :100%; margin:10%">
+<html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<base href="/">
+    <meta charset="UTF-8">
+    <base href="/">
 
-	<title>NoSentenceSense</title>
+    <title>NoSentenceSense</title>
 
-<!-- 	CSS -->
-	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css"> 
-	<link rel="stylesheet" href="css/addbox.css"> 
-	<link rel="stylesheet" href="css/thickbox.css"> 
+    <!--    CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+      <link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/addbox.css">
+    <link rel="stylesheet" href="css/thickbox.css">
 
-	<!-- JS -->
-	<script src="libs/angular/angular.min.js"></script>
-	<script src="libs/angular-route/angular-route.min.js"></script>
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
 
-	<!-- ANGULAR CUSTOM -->
-	<script src="js/controllers/MainCtrl.js"></script>
-	<script src="js/controllers/SentenceCtrl.js"></script>
-	<script src="js/controllers/TopFiveCtrl.js"></script>
-	<script src="js/services/MainService.js"></script>
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/controllers/MainCtrl.js"></script>
+    <script src="js/controllers/SentenceCtrl.js"></script>
+    <script src="js/controllers/TopFiveCtrl.js"></script>
+    <script src="js/controllers/HeaderCtrl.js"></script>
+    <script src="js/services/MainService.js"></script>
 
-	<script src="js/appRoutes.js"></script>
-	<script src="js/app.js"></script>
+    <script src="js/appRoutes.js"></script>
+    <script src="js/app.js"></script>
 </head>
-<body  ng-app="sampleApp"  >
-<div id="bgpic">
 
-<div id="container" ng-controller= "MainController">
-	 <a><div class="logo"></div></a> <div class="headercontent"><a ng-click="goToTopFive();">Top 5</a><br /><a  ng-click="goToHome()">Zufall</a></div>
-        <hr class="headerline" />
-        
-        <div class="sociallinks"></div>
-        <div class="clearfloat"></div>
+<body  ng-app="sampleApp">
+    
+        <div class="site-wrapper" ng-controller="MainController">
 
-        <div ng-view></div>
-        <div class="footer"></div>
-</div>
+      <div class="site-wrapper-inner ">
 
-</div>
-	
-	
-     
-	
+        <div class="cover-container">
 
+          <div class=" masthead clearfix navbar-static-top " role="navigation">
+            <div class="inner">
+              <div  class=" col-sm-6 col-md-6 "><img src='./images/logo.png'  class="img-responsive"></div>
+              <ul class="nav masthead-nav" ng-controller="HeaderController">
+                <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
+                <li ng-class="{ active: isActive('/topFive')}"><a href="/topFive">Top Five</a></li>
+                <li ng-class="{ active: isActive('/createSentence')}"><a href="/createSentence">Your Sentence</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="inner cover" ng-view>
+            
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p> senselessness presented by <a href="http://www.naisone.de">@naisone</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+      
+   
 </body>
+
 </html>
+
+<!-- <div id="bgpic">
+        <div ng-controller="MainController">
+            <div class="row">
+                <div  class=" col-sm-6 col-md-6"><img src='./images/logo.png'  class="img-responsive"></div>
+                <div class="hidden-xs headercontent col-sm-4 col-md-4">
+                    <a ng-click="goToTopFive();">Top 5</a>
+                    <br /><a ng-click="goToHome()">Zufall</a>
+                </div>
+            </div>
+            <hr class="headerline" />
+            <div ng-view></div>
+        </div>
+    </div>
+ -->
 
 

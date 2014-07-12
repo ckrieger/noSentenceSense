@@ -3,6 +3,9 @@
   "main": "server.js",
   "dependencies": {
     "express": "~3.4.8",
-    "mongoose": "~3.6.13"
+    "mongoose": "~3.6.13",
+    "node-uuid": "latest",
+    "express-session": "latest",
+    "recaptcha-async": "latest"
   }
 }

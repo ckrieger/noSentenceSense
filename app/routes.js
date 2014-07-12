@@ -1,4 +1,5 @@
-var sentenceModel = require('./models/Sentence.js')
+var sentenceModel = require('./models/Sentence.js');
+var captcha = require('./captcha.js');
 module.exports = function(app) {
 
 	// server routes ===========================================================
@@ -11,7 +12,13 @@ module.exports = function(app) {
 		res.sendfile('./public/index.html');
 	});
 
+  app.post('/getCaptcha', function(req,res){
+        captcha.createCaptcha(req, res);
+        
+  })
+
 	app.post( '/createSentence', function(req,res){
+    if(req.body.captchaInput == req.session.captcha){
      var sentence = new sentenceModel({
   	   sentenceText : req.body.sentence,
        user : req.body.user,
@@ -25,10 +32,16 @@ module.exports = function(app) {
 
   sentence.save(function(err){
   	console.log('saved');
+    res.json(1);
   });
+  } else {
+    res.json(0);
+    console.log("wrong captcha input");
+  }
 	});
 
   app.post('/getRandomSentence', function(req, res){
+    console.log(req.session);
     sentenceModel.randomSentence(req, res);
   });
 
