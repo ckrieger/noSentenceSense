@@ -1,17 +1,16 @@
 <div data-ng-init="refresh()" ng-controller="MainController">
     <div class="row">
-        <div class="nosensearea  col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-1  col-md-7 col-md-offset-1 col-lg-9 control-label">
-            <div class="sentence col-sm-6 col-sm-offset-3 " itemprop="description">
-            </br></br></br>
+        <div class="nosensearea row  col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-1  col-md-7 col-md-offset-1 col-lg-9 control-label">
+            <div class="sentenceBox col-md-offset-1 col-md-10" itemprop="description">
                 "{{sentence.sentenceText}}"
             </div>
-
-            <div class="row">
+            <div class="row sentenceActions">
                 <div class="autor col-xs-8 col-sm-4 col-md-4 col-lg-8 ">
-                    Made by <strong>{{sentence.user}} </strong>
+                    Made by
+                    <strong>{{sentence.user}}</strong>
                 </div>
-                <div class="melden col-xs-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4">
-                    <a>Satz melden!</a>
+                <div ng-controller="ModalController" class="melden col-xs-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4">
+                    <strong ng-click="openMail('sm')">Satz melden!</strong>
                 </div>
             </div>
         </div>
@@ -22,21 +21,29 @@
             </div>
         </div>
     </div>
-
-
-
-
-
     <div class="row visible-md visible-sm">
         <button class="btn btn-primary  " ng-click="vote('0', sentence._id)">Sense</button>
         <button class="btn btn-primary " ng-click="vote('1', sentence._id)">Mmmmh</button>
         <button class="btn btn-primary " ng-click="vote('2', sentence._id)">No Sense</button>
-      
     </div>
-
 </div>
 
-
-
-
-
+<!-- html for the modal when user want to report a sentense -->
+<script type="text/ng-template" id="mailModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-muted">Warum wollen sie den Satz melden ?</h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="item in items">
+                <a class="text-muted" ng-click="selected.item = item">{{ item }}</a>
+            </li>
+        </ul>
+        <div class="text-muted">Selected: <b>{{ selected.item }}</b> 
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Satz melden !</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

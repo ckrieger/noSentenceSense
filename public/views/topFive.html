@@ -1,41 +1,79 @@
-
-
- <div data-ng-init="refresh()">
-	
-</div>
-
-
-<!-- <table class="table" >
-  		<tr ng-repeat="sentence in sentences" ng-controller= "TopFiveController">
-    		<td>
-    			<td>
-    			
-	<div class="nosensearea">
-		<div class="sentence"  itemprop="description">
-			"{{sentence.sentenceText}}"
-		</div>
-	</div>
-	<div class="sentenceinfo">
-		<div class="infotext">
-          		the sentence makes </br>
-          		{{sentence.percentage | number : 0}} % no sense
+<div data-ng-init="refresh()" ng-controller="TopFiveController">
+    <div class="row">
+        <div class="nosensearea row  col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-1  col-md-7 col-md-offset-1 col-lg-9 control-label">
+            <button type="button" class="btn btn-default col-md-1 nextSentence" ng-click="previousSentence()">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+            <div class="sentenceBox  col-md-10" itemprop="description">
+                "{{sentence.sentenceText}}"
+            </div>
+            <button type="button" class="btn btn-default col-md-1 nextSentence" ng-click="nextSentence()">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+            <div class="row sentenceActions">
+                <div class="autor col-xs-8 col-sm-4 col-md-3 col-lg-8 ">
+                    Made by
+                    <strong>{{sentence.user}}</strong>
+                </div>
+                    <button type="button" class="btn btn-default col-md-1" ng-Controller="ModalController">
+                        <span class="glyphicon glyphicon-globe" ng-click="openShare('sm')"></span>
+                    </button>
+                <div ng-controller="ModalController" class="melden col-xs-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4">
+                    <strong ng-click="openMail('sm')">Satz melden!</strong>
+                </div>
+            </div>
+        </div>
+        <div class="sentenceinfo visible-sm visible-md visible-lg col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2">
+            <div class="infotext ">
+                the sentence makes</br>
+                {{sentence.percentage | number : 0}} % no sense
+            </div>
         </div>
     </div>
-    <div class="squarebuttons"><a class="shuffle"></a><a  class="top10"></a></div>
-	<div class="clearfloat"></div>
-	<div class="votebutton">
-		
-        <div class="autor">Made by <a>{{sentence.user}} </a></div> 
-		<div class="clearfloat"></div>
-        <div class ="form-actions">
-        	<button class="btn btn-primary " ng-click= "vote('0', sentence._id)">Sense</button>
-        	<button class="btn btn-primary " ng-click= "vote('1', sentence._id)">Mmmmh</button>
-        	<button class="btn btn-primary " ng-click= "vote('2', sentence._id)">No Sense</button>
+    <div class="row visible-md visible-sm">
+        <button class="btn btn-primary " ng-click="vote('0', sentence._id)">Sense</button>
+        <button class="btn btn-primary " ng-click="vote('1', sentence._id)">Mmmmh</button>
+        <button class="btn btn-primary " ng-click="vote('2', sentence._id)">No Sense</button>
+   </div>
+</div>
+
+<!-- html for the modal when user want to report a sentense -->
+<script type="text/ng-template" id="mailModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-muted">Warum wollen sie den Satz melden ?</h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="item in items">
+                <a class="text-muted" ng-click="selected.item = item">{{ item }}</a>
+            </li>
+        </ul>
+        <div class="text-muted">Selected: <b>{{ selected.item }}</b> 
         </div>
-        	<div class="melden"><a  class="iframe1 claimlink">Satz melden!</a></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Satz melden !</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<!-- html for the modal when user want to share a sentense -->
+<script type="text/ng-template" id="shareModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-muted">Spread the senselessness</h3>
+    </div>
+    <div class="modal-body">
+          <img src='./images/facebook.png'>
+        <div class="text-muted">´Spread on : <b>{{ selected.item }}</b> 
         </div>
-	</div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Teilen !</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+
  
-    			
-  		</tr>
-	</table> -->
+ 
+

@@ -1,5 +1,6 @@
 var sentenceModel = require('./models/Sentence.js');
 var captcha = require('./captcha.js');
+var mailer = require('./mailer.js')
 module.exports = function(app) {
 
 	// server routes ===========================================================
@@ -69,6 +70,13 @@ module.exports = function(app) {
           }
         })
     }
+    res.end('Voted')
+  });
+
+  app.post('/sendMail', function(req, res){
+    mailer.sendMail(req.body.item);
+    res.end('Mail sent');
+    
   });
 
 };

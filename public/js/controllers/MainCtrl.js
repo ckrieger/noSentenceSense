@@ -1,4 +1,4 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope, $http, $location) {
+angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', function($scope, $http, $location, $modal) {
 	 
  
 
@@ -44,9 +44,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
           $scope.sentence.noSenseVote++
         }
         $scope.sentence.percentage = (100/($scope.sentence.senseVote + $scope.sentence.noSenseVote + $scope.sentence.notSureVote)) * $scope.sentence.noSenseVote;
-      
-
-    
-}; 
+    };
+     
 
 });
