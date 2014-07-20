@@ -4,8 +4,8 @@ var sendMail = function(selectedReason) {
     var smtpTransport = nodemailer.createTransport("SMTP", {
         service: "Gmail",
         auth: {
-            user: "keep.sake.ahem@gmail.com",
-            pass: "AHEM2013"
+            user: "",
+            pass: ""
         }
     });
     var mailOptions = {
