@@ -9,6 +9,14 @@ html, body {
   height:100%;
   margin: 0;
 }
+
+.mouseArrow{
+  cursor: default;
+}
+.share {
+    cursor: pointer;
+}
+
 .facebook {
   background-image:url('../images/facebook.png');
   width: 100%;
@@ -22,40 +30,42 @@ html, body {
 }
 .nextSentence{
  margin-top:  25%;
+ float:right
 }
-
+.previousSentence{
+  margin-top:  25%;
+ float:left
+}
 .nosensearea {
   background-image:url('../images/sentence_bg.png');
-height: 250px
+height: 300px
 
   }
 
 .sentenceBox {
   
-  font:28px Helvetica;
+  font:20px Helvetica;
   color:#000;
   font-weight:lighter;
-  display: table-cell;
-    vertical-align: middle;
   text-align:center;
-  
-  margin-top : 10%;
-  margin-bottom:10%;
+  margin-top : 70px;
+  margin-bottom: 50px;
   word-wrap:break-word;
+  cursor: default;
 
 }
 
 .sentenceActions{
-  margin-top: 220px;
+  margin-top: 270px;
 
 }
 
 .sentencePhone {
-  font: 28px Helvetica;
+  font: 18px Helvetica;
   color:#000;
   font-weight:lighter;
   display: table-cell;
-    vertical-align: middle;
+  vertical-align: middle;
   text-align:center;
   height:10em;
   width:660px;
@@ -81,12 +91,14 @@ height: 250px
   font:  18px Helvetica;
   font-weight:lighter;
   color: #fff;
+  cursor: default;
 }
 
 .autor {
   font:14px Helvetica;
   font-weight:lighter;
   color:#666;
+   cursor: default;
 }
 
 .autorheadline {

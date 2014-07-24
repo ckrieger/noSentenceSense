@@ -7,6 +7,7 @@
     "mongoose": "~3.6.13",
     "node-uuid": "latest",
     "nodemailer": "^0.7.1",
-    "recaptcha-async": "latest"
+    "recaptcha-async": "latest",
+    "request": "latest"
   }
 }

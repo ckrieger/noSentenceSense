@@ -1,20 +1,26 @@
 <div data-ng-init="refresh()" ng-controller="MainController">
     <div class="row">
-        <div class="nosensearea row  col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-1  col-md-7 col-md-offset-1 col-lg-9 control-label">
-            <div class="sentenceBox col-md-offset-1 col-md-10" itemprop="description">
+        <div class="nosensearea row  col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label">
+            <div class=" col-sm-1 col-md-offset-9 col-md-1 col-lg-1" ng-Controller="ModalController">
+                <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
+            </div> 
+            <div class=" col-sm-1  col-md-offset-1 col-md-1 col-lg-1">
+                <img class="share" src='./images/refresh.png' ng-click ="refresh()">
+            </div> 
+            <div class="sentenceBox col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10" itemprop="description">
                 "{{sentence.sentenceText}}"
             </div>
             <div class="row sentenceActions">
-                <div class="autor col-xs-8 col-sm-4 col-md-4 col-lg-8 ">
+                <div class="autor col-xs-8 col-sm-4 col-md-4 col-lg-4 ">
                     Made by
                     <strong>{{sentence.user}}</strong>
                 </div>
-                <div ng-controller="ModalController" class="melden col-xs-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4">
+                <div ng-controller="ModalController" class="share col-xs-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
                     <strong ng-click="openMail('sm')">Satz melden!</strong>
                 </div>
             </div>
         </div>
-        <div class="sentenceinfo visible-sm visible-md visible-lg col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2">
+        <div class="sentenceinfo visible-sm visible-md visible-lg col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
             <div class="infotext ">
                 the sentence makes</br>
                 {{sentence.percentage | number : 0}} % no sense
@@ -31,19 +37,36 @@
 <!-- html for the modal when user want to report a sentense -->
 <script type="text/ng-template" id="mailModalContent.html">
     <div class="modal-header">
-        <h3 class="modal-title text-muted">Warum wollen sie den Satz melden ?</h3>
+        <h3 class="modal-title text-muted mouseArrow">Warum wollen sie den Satz melden ?</h3>
     </div>
     <div class="modal-body">
         <ul>
             <li ng-repeat="item in items">
-                <a class="text-muted" ng-click="selected.item = item">{{ item }}</a>
+                <a class="text-muted share" ng-click="selected.item = item">{{ item }}</a>
             </li>
         </ul>
-        <div class="text-muted">Selected: <b>{{ selected.item }}</b> 
+        <div class="text-muted mouseArrow">Selected: <b>{{ selected.item }}</b> 
         </div>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="ok()">Satz melden !</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<!-- html for the modal when user want to share a sentense -->
+<script type="text/ng-template" id="shareModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-muted mouseArrow">Spread the senselessness</h3>
+    </div>
+    <div class="modal-body">
+          <img class = "share" src='./images/facebook.png' ng-click="selected.item = 'facebook'">
+          <img class = "share" src='./images/google.png' ng-click="selected.item = 'google+'">
+        <div class="text-muted mouseArrow">´Spread on : <b>{{ selected.item }}</b> 
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Teilen !</button>
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </script>

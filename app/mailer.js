@@ -1,11 +1,12 @@
 var nodemailer = require("nodemailer");
+var config = require('./models/Config.js');
 
-var sendMail = function(selectedReason) {
+var sendMail = function(mail, mailPassword, selectedReason) {
     var smtpTransport = nodemailer.createTransport("SMTP", {
         service: "Gmail",
         auth: {
-            user: "",
-            pass: ""
+            user: mail,
+            pass: mailPassword
         }
     });
     var mailOptions = {

@@ -9,7 +9,7 @@ angular.module('SentenceCtrl', []).controller('SentenceController', function($sc
  	
  		var data = {
  			captchaInput : $scope.captchaInput,
- 			sentence : $scope.sentence,
+ 			sentence : $scope.sentenceIn,
  			user : $scope.user ,
  			mail : $scope.mail
  		};
