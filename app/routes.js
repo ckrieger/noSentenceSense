@@ -77,7 +77,7 @@ module.exports = function(app) {
     app.post('/sendMail', function(req, res) {
         config.findOne(function(err, data) {
             console.log(data);
-            mailer.sendMail(data.mail, data.mailPassword, req.body.item);
+            mailer.sendMail(data.mail, data.mailPassword, data.mailAddressee, req.body.item);
             res.end('Mail sent');
         });
 

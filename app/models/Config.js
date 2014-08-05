@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 
   var ConfigSchema = new Schema({
     mail : String,
-    mailPassword : String
+    mailPassword : String,
+    mailAddressee : String
   });
 
 

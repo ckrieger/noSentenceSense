@@ -1,33 +1,35 @@
 <div data-ng-init="refresh()" ng-controller="MainController">
     <div class="row">
-        <div class="nosensearea row  col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label">
-            <div class=" col-sm-1 col-md-offset-9 col-md-1 col-lg-1" ng-Controller="ModalController">
+        <div class="nosensearea row  col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label">
+        
+            <div class="col-xs-offset- col-xs-1 col-sm-offset-9 col-sm-1 col-md-offset-9 col-md-1 col-lg-1" ng-Controller="ModalController">
                 <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
             </div> 
-            <div class=" col-sm-1  col-md-offset-1 col-md-1 col-lg-1">
+            <div class="col-xs-offset-1 col-xs-1 col-sm-offset-1 col-sm-1  col-md-offset-1 col-md-1 col-lg-1">
                 <img class="share" src='./images/refresh.png' ng-click ="refresh()">
             </div> 
-            <div class="sentenceBox col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10" itemprop="description">
+        
+            <div class="sentenceBox col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10" itemprop="description">
                 "{{sentence.sentenceText}}"
             </div>
             <div class="row sentenceActions">
-                <div class="autor col-xs-8 col-sm-4 col-md-4 col-lg-4 ">
+                <div class="autor col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
                     Made by
                     <strong>{{sentence.user}}</strong>
                 </div>
-                <div ng-controller="ModalController" class="share col-xs-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+                <div ng-controller="ModalController" class="share col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
                     <strong ng-click="openMail('sm')">Satz melden!</strong>
                 </div>
             </div>
         </div>
         <div class="sentenceinfo visible-sm visible-md visible-lg col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
-            <div class="infotext ">
+           
                 the sentence makes</br>
                 {{sentence.percentage | number : 0}} % no sense
-            </div>
+            
         </div>
     </div>
-    <div class="row visible-md visible-sm">
+    <div class="row visible-lg visible-md visible-sm">
         <button class="btn btn-primary  " ng-click="vote('0', sentence._id)">Sense</button>
         <button class="btn btn-primary " ng-click="vote('1', sentence._id)">Mmmmh</button>
         <button class="btn btn-primary " ng-click="vote('2', sentence._id)">No Sense</button>

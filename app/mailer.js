@@ -1,7 +1,7 @@
 var nodemailer = require("nodemailer");
 var config = require('./models/Config.js');
 
-var sendMail = function(mail, mailPassword, selectedReason) {
+var sendMail = function(mail, mailPassword, mailAddressee, selectedReason) {
     var smtpTransport = nodemailer.createTransport("SMTP", {
         service: "Gmail",
         auth: {
@@ -11,7 +11,7 @@ var sendMail = function(mail, mailPassword, selectedReason) {
     });
     var mailOptions = {
             from: "Fred Foo ✔ <foo@blurdybloop.com>", // sender address
-            to: "christoph-krieger1@gmx.de", // list of receivers
+            to: mailAddressee, // list of receivers
             subject: "Satz gemeldet Reason  " + selectedReason, // Subject line
             text: "hi was geht", // plaintext body
             html: "<b>Hello world ✔</b>" // html body

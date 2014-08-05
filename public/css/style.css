@@ -17,6 +17,14 @@ html, body {
     cursor: pointer;
 }
 
+@media screen and (max-width: 768px) {
+    .share {
+        font-size:10px;
+    }
+}
+
+
+
 .facebook {
   background-image:url('../images/facebook.png');
   width: 100%;
@@ -88,17 +96,29 @@ height: 300px
 
 .infotext {
   
-  font:  18px Helvetica;
+  font:  18px Futura;
   font-weight:lighter;
   color: #fff;
   cursor: default;
 }
+
+  @media screen and (max-width: 768px) {
+    .infotext {
+        font-size:10px;
+    }
+}
+
 
 .autor {
   font:14px Helvetica;
   font-weight:lighter;
   color:#666;
    cursor: default;
+}
+@media screen and (max-width: 768px) {
+    .autor {
+        font-size:10px;
+    }
 }
 
 .autorheadline {
