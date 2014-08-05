@@ -50,6 +50,21 @@ height: 300px
 
   }
 
+  .sentenceActions{
+  margin-top: 270px;
+
+}
+
+   @media screen and (max-width: 400px) {
+    .nosensearea {
+         background-image:url('../images/sentence_bg.png');
+          height: 200px
+    }
+    .sentenceActions{
+      margin-top: 170px;
+    }
+}
+
 .sentenceBox {
   
   font:20px Helvetica;
@@ -63,10 +78,7 @@ height: 300px
 
 }
 
-.sentenceActions{
-  margin-top: 270px;
 
-}
 
 .sentencePhone {
   font: 18px Helvetica;
