@@ -12,4 +12,7 @@
     "captchapng": "latest",
     "request": "latest"
   }
+  "scripts": {
+  "postinstall": "bower install && grunt build"
+}
 }
