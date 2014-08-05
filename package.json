@@ -13,6 +13,6 @@
     "request": "latest"
   },
   "scripts": {
-  "postinstall": "bower install && grunt build"
+  "postinstall": "bower install"
 }
 }
