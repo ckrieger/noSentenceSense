@@ -1,14 +1,21 @@
 <div data-ng-init="refresh()" ng-controller="MainController">
     <div class="row">
-        <div class="nosensearea row  col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label">
+        <div class="nosensearea row  col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label">
         
-            <div class="col-xs-offset- col-xs-1 col-sm-offset-9 col-sm-1 col-md-offset-9 col-md-1 col-lg-1" ng-Controller="ModalController">
-                <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
+            <div class=" hidden-xs col-sm-offset-9 col-sm-1 col-md-offset-9 col-md-1 col-lg-1" ng-Controller="ModalController">
+                <img class="share image-responsive" src='./images/share.png' ng-click ="openShare('sm')">
             </div> 
-            <div class="col-xs-offset-1 col-xs-1 col-sm-offset-1 col-sm-1  col-md-offset-1 col-md-1 col-lg-1">
+            <div class="hidden-xs col-sm-offset-1 col-sm-1  col-md-offset-1 col-md-1 col-lg-1">
                 <img id='shareSentence' class="share" src='./images/refresh.png' ng-click ="refresh()">
             </div> 
-        
+
+            <!-- icons for mobile -->
+
+            <div class="visible-xs col-xs-offset-8 col-xs-4 ">
+                <img  class="share" src='./images/refreshMobile.png' ng-click ="refresh()">
+            </div> 
+            <!--  -->
+
             <div class="sentenceBox col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10" itemprop="description">
                 "{{sentence.sentenceText}}"
             </div>
@@ -29,10 +36,15 @@
             
         </div>
     </div>
-    <div class="row visible-lg visible-md visible-sm">
+    <div class="row  visible-lg visible-md visible-sm ">
         <button id ='senseButton' class="btn btn-primary  " ng-click="vote('0', sentence._id)">Sense</button>
-        <button class="btn btn-primary " ng-click="vote('1', sentence._id)">Mmmmh</button>
+        
         <button id='noSenseButton' class="btn btn-primary " ng-click="vote('2', sentence._id)">No Sense</button>
+    </div>
+    <div class="row visible-xs">
+        <button class="btn btn-primary btn-xs  " ng-click="vote('0', sentence._id)">Sense</button>
+        
+        <button class="btn btn-primary btn-xs" ng-click="vote('2', sentence._id)">No Sense</button>
     </div>
 </div>
 

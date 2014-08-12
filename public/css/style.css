@@ -1,11 +1,17 @@
 /* Container start */
 
 html, body {
-    background: url('../images/body_bg.jpg') no-repeat center center fixed; 
+  /*  background: url('../images/body_bg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
+  background: #2d3a42 url(images/body_gradient.png) repeat-x;
+  color: #9cc4dd;
+ 
+  overflow-x: hidden;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.25);
+  word-wrap: break-word;
 }
 
 #confirmButton{
@@ -18,11 +24,7 @@ html, body {
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-    .share {
-        font-size:10px;
-    }
-}
+
 
 
 
@@ -56,16 +58,7 @@ height: 300px
 
 }
 
-   @media screen and (max-width: 400px) {
-    .nosensearea {
-         background-image:url('../images/sentence_bg.png');
-          height: 200px
-    }
-    .sentenceActions{
-      margin-top: 170px;
-    }
-}
-
+  
 .sentenceBox {
   
   font:20px Helvetica;
@@ -118,11 +111,7 @@ height: 300px
   cursor: default;
 }
 
-  @media screen and (max-width: 768px) {
-    .infotext {
-        font-size:10px;
-    }
-}
+ 
 
 
 .autor {
@@ -131,11 +120,7 @@ height: 300px
   color:#666;
    cursor: default;
 }
-@media screen and (max-width: 768px) {
-    .autor {
-        font-size:10px;
-    }
-}
+
 
 .autorheadline {
   float:left;
@@ -145,6 +130,44 @@ height: 300px
   color:#fff;
 }
   
+ @media screen and (max-width: 768px) {
+    .infotext {
+        font-size:10px;
+    }
+
+    .autor {
+        font-size:10px;
+    }
+
+    .share {
+        font-size:10px;
+    }
+    #confirmButton{
+      margin-left: 20px;
+      font-size:10px
+    }
+    .error{
+      font-size: 10px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .nosensearea {
+         background-image:url('../images/sentence_bg.png');
+          height: 300px
+    }
+    .sentenceActions{
+      margin-top: 250px;
+    }
+    .share {
+        font-size:8px;
+    }
+
+    #confirmButton{
+      margin-left: 20px;
+      font-size:8px
+    }
+  }
 
 
 
