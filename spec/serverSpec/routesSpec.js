@@ -81,7 +81,32 @@ describe("test for all the serverside routes", function() {
     });
 
     it("/vote", function(done){
-    	//
+        request.post('http://localhost:8080/createSentence', {
+            form: {
+                user: 'testUser',
+                mail: 'test@mail',
+                sentence: 'test sentence'
+            }
+        }, function(error, response, body) {
+            mongoose.connection.collections['sentences'].findOne(function(err, data) {
+                if (err) {
+                    console.log('err' + err);
+                    done();
+                } else {
+                    console.log(data._id);
+                  request.post('http://localhost:8080/vote', {
+                    form : {
+                        vote: '1',
+                        id: 53e9d19c2cc1be7c09000002
+                    }
+                  },function(error, response, body){
+                     mongoose.connection.collections['sentences'].findOne(function(err, data) {
+                        expect(data.senseVote).toEqual(1);
+                     });
+                  }) 
+                };
+            });
+        });
     });
 
     

@@ -4,7 +4,6 @@
   "description": "Senseless App",
   "main": "server.js",
   "dependencies": {
-     "bower": "0.6.x",
     "express": "~3.4.8",
     "express-session": "latest",
     "mongoose": "~3.6.13",
@@ -12,8 +11,5 @@
     "nodemailer": "^0.7.1",
     "captchapng": "latest",
     "request": "latest"
-  },
-  "scripts": {
-  "postinstall": "./node_modules/bower/bin/bower install"
   }
 }

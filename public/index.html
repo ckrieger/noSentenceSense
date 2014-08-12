@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
 
     <!--    CSS -->
-    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" type='text/css'>
     
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/addbox.css">
-    <link rel="stylesheet" href="css/thickbox.css">
+    <link rel="stylesheet" href="css/bootstrap.css" type='text/css'>
+    <link rel="stylesheet" href="css/style.css" type='text/css'>
+    <link rel="stylesheet" href="css/addbox.css" type='text/css'>
+    <link rel="stylesheet" href="css/thickbox.css" type='text/css'>
     
 
     <!-- JS -->
@@ -47,11 +47,11 @@
                         <img src='./images/logo.png'>
                     </div>
                     <ul class="nav masthead-nav" ng-controller="HeaderController">
-                        <li ng-class="{ active: isActive('/')}"><a href="/">Home</a>
+                        <li id ="home" ng-class="{ active: isActive('/')}"><a href="/">Home</a>
                         </li>
-                        <li ng-class="{ active: isActive('/topFive')}"><a href="/topFive">Top Five</a>
+                        <li id ="topFive" ng-class="{ active: isActive('/topFive')}"><a href="/topFive">Top Five</a>
                         </li>
-                        <li ng-class="{ active: isActive('/createSentence')}"><a href="/createSentence">Your Sentence</a>
+                        <li id="createSentence" ng-class="{ active: isActive('/createSentence')}"><a href="/createSentence">Your Sentence</a>
                         </li>
                     </ul>
                 </div>

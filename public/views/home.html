@@ -6,7 +6,7 @@
                 <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
             </div> 
             <div class="col-xs-offset-1 col-xs-1 col-sm-offset-1 col-sm-1  col-md-offset-1 col-md-1 col-lg-1">
-                <img class="share" src='./images/refresh.png' ng-click ="refresh()">
+                <img id='shareSentence' class="share" src='./images/refresh.png' ng-click ="refresh()">
             </div> 
         
             <div class="sentenceBox col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10" itemprop="description">
@@ -18,21 +18,21 @@
                     <strong>{{sentence.user}}</strong>
                 </div>
                 <div ng-controller="ModalController" class="share col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
-                    <strong ng-click="openMail('sm')">Satz melden!</strong>
+                    <strong id='reportSentence'ng-click="openMail('sm')">Satz melden!</strong>
                 </div>
             </div>
         </div>
         <div class="sentenceinfo visible-sm visible-md visible-lg col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
            
-                the sentence makes</br>
-                {{sentence.percentage | number : 0}} % no sense
+        
+                <strong id='sentencePercentage'>{{sentence.percentage | number : 0}} % Senseless</strong>
             
         </div>
     </div>
     <div class="row visible-lg visible-md visible-sm">
-        <button class="btn btn-primary  " ng-click="vote('0', sentence._id)">Sense</button>
+        <button id ='senseButton' class="btn btn-primary  " ng-click="vote('0', sentence._id)">Sense</button>
         <button class="btn btn-primary " ng-click="vote('1', sentence._id)">Mmmmh</button>
-        <button class="btn btn-primary " ng-click="vote('2', sentence._id)">No Sense</button>
+        <button id='noSenseButton' class="btn btn-primary " ng-click="vote('2', sentence._id)">No Sense</button>
     </div>
 </div>
 
