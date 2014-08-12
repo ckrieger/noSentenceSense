@@ -1,9 +1,9 @@
 <div data-ng-init="refresh()" ng-controller="TopFiveController">
     <div class="row">
-        <div class="nosensearea row  col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label">
-             <div class=" col-xs-offset-11 col-xs-1 col-sm-offset-11 col-sm-1 col-md-offset-11 col-md-1 col-lg-1" ng-Controller="ModalController">
+        <div class="nosensearea row  col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label" ng-swipe-left="previousSentence">
+             <!-- <div class=" col-xs-offset-11 col-xs-1 col-sm-offset-11 col-sm-1 col-md-offset-11 col-md-1 col-lg-1" ng-Controller="ModalController">
                 <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
-            </div> 
+            </div>  -->
            
             <button type="button" class="btn btn-default col-xs-1 col-sm-1 col-md-1 col-lg-1 previousSentence" ng-click="previousSentence()">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="sentenceinfo visible-xs visible-sm visible-md visible-lg col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
+        <div class="sentenceinfo hidden-xs col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
             
                 
                <strong> {{sentence.percentage | number : 0}} % Senseless </strong>
