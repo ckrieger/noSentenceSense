@@ -15,5 +15,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ckrieger/noSentenceSense.git"
-  }
+  },
+  "engines": {
+    "node" : "0.10.28"
+  },
+  "scripts": {
+    "postinstall": "bower install"
+}
 }
