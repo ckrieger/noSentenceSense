@@ -1,4 +1,4 @@
-angular.module('TopFiveCtrl', []).controller('TopFiveController', function($scope, $http, $location) {
+angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', function($scope, $http, $location) {
 
     // gets the top 5 sentences
     $http({
