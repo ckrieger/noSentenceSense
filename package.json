@@ -10,7 +10,8 @@
     "node-uuid": "latest",
     "nodemailer": "^0.7.1",
     "captchapng": "latest",
-    "request": "latest"
+    "request": "latest",
+    "mongodb": "1.4.3"
   },
   "repository": {
     "type": "git",
