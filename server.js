@@ -10,7 +10,7 @@ var session = require('express-session'),
 // config files
 
 //var mongoUri = 'mongodb://localhost/noSentenceSense';
-var mongoUri = 'mongodb://localhost/noSentenceSense'||'mongodb://heroku:e21c4c63183eaf46426eae31a05ab49e@kahana.mongohq.com:10042/app28165760'
+var mongoUri = 'mongodb://heroku:e21c4c63183eaf46426eae31a05ab49e@kahana.mongohq.com:10042/app28165760' || 'mongodb://localhost/noSentenceSense'
 console.log("mongoUri: " + mongoUri);
 mongoose.connect(mongoUri);
 
