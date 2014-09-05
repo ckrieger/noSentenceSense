@@ -138,7 +138,7 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
         var modalInstance = $modal.open({
             templateUrl: 'shareModalContent.html',
             controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
-                $scope.shareLink = "http://noSentenceSense" + $location.url();
+                $scope.shareLink = "http://no-sentence-sense.herokuapp.com/" + $location.url();
                 $scope.ok = function() {
                     /*$modalInstance.close($http({
                         method: 'POST',

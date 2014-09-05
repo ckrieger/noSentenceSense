@@ -86,7 +86,7 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
             templateUrl: 'shareModalContent.html',
             controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
                 $scope.itemsShare = itemsShare
-                $scope.shareLink = "http://noSentenceSense/home/" + itemsShare ;
+                $scope.shareLink = "http://no-sentence-sense.herokuapp.com/home/" + itemsShare ;
                 $scope.ok = function() {
                     /*$modalInstance.close($http({
                         method: 'POST',
