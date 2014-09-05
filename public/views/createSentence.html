@@ -5,7 +5,9 @@
             <label for="inputAlias" class="visible-md visible-lg col-sm-2 col-md-2 col-lg-2 control-label">Alias</label>
             <div class="col-xs-12  col-sm-12  col-md-10 col-lg-10">
                 <input type="text" class="form-control" name="alias" placeholder="Alias" ng-model="user" required>
+                <p id='aliasError'>{{aliasError}}</p>
             </div>
+
         </div>
     </div>
     <div class="form-group">
@@ -13,7 +15,9 @@
             <label for="inputE-mail" class=" visible-md visible-lg col-xs-12 col-sm-2 col-md-2 col-lg-2  control-label">E-Mail</label>
             <div class="col-xs-12  col-sm-12  col-md-10 col-lg-10">
                 <input type="email" class="form-control" name="email" placeholder="Email" ng-model="mail" required>
+                
             </div>
+
         </div>
     </div>
     <div class="form-group">
@@ -28,7 +32,7 @@
         <div class=" row">
             <button id = "confirmButton" type="submit" class="btn btn-default col-xs-offset-1 col-xs-3 col-sm-offset-1 col-sm-3 col-md-offset-2 col-md-3 col-lg-offset-2 col-lg-3" ng-click="saveSentence();" ng-disabled="!createSentence.$valid">Abschicken</button>
             <span id="errorMessage" class="error col-xs-6 col-sm-6  col-md-6 col-lg-6" ng-show="!createSentence.$valid">
-                Bitte füllen sie alle Pflichtfelder aus !
+                Bitte füllen sie alle Felder aus !
             </span>
         </div>
     </div>

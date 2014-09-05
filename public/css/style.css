@@ -49,7 +49,7 @@ html, body {
 }
 .nosensearea {
   background-image:url('../images/sentence_bg.png');
-height: 300px
+height: 310px
 
   }
 
@@ -60,6 +60,19 @@ height: 300px
 
   
 .sentenceBox {
+  
+  font:20px Helvetica;
+  color:#000;
+  font-weight:lighter;
+  text-align:center;
+  margin-top : 100px;
+  margin-bottom: 50px;
+  word-wrap:break-word;
+  cursor: default;
+
+}
+
+.sentenceBoxHome {
   
   font:20px Helvetica;
   color:#000;
@@ -118,7 +131,7 @@ height: 300px
   font:14px Helvetica;
   font-weight:lighter;
   color:#666;
-   cursor: default;
+   cursor: pointer;
 }
 
 
@@ -157,7 +170,7 @@ height: 300px
           height: 300px
     }
     .sentenceActions{
-      margin-top: 250px;
+      margin-top: 100Fsenpx;
     }
     .share {
         font-size:8px;

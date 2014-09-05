@@ -3,10 +3,17 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 	$routeProvider
 
 		// home page
+		// 
 		.when('/', {
 			templateUrl: 'views/home.html',
 			controller: 'MainController'
 		})
+
+		.when('/home/:sentenceId', {
+			templateUrl: 'views/home.html',
+			controller: 'MainController'
+		})
+
 
 		.when('/createSentence', {
 			templateUrl: 'views/createSentence.html',
@@ -16,6 +23,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/topFive', {
 			templateUrl: 'views/topFive.html',
 			controller:'TopFiveController'
+		})
+
+		.when('/user/:user', {
+			templateUrl: 'views/user.html',
+			controller : 'UserController'
 		})
 
 	$locationProvider.html5Mode(true);

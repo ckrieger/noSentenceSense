@@ -11,9 +11,35 @@ var mongoose = require('mongoose'),
     notSureVote : Number
   });
 
+SentenceSchema.statics.checkAlias = function(reqIn, resIn, callback){
+  var query = reqIn.body.user;
+
+  this.find({user : query}, function(err, data){
+    if(err){
+      console.log("error");
+    } else {
+     console.log("was gefunden" + data[0]);
+      
+      if( data.length == 0 ||data[0].mail === reqIn.body.mail  ){
+        callback(true);
+      } else{
+        callback(false)
+      }
+    }
+  })
+}
 SentenceSchema.statics.findTop5 = function( reqIn, resIn, callback) {
   this.find({},{},{skip:0, limit:5, sort:{senseVoted: -1}}, function(err, data){
       
+    resIn.json(data);
+    resIn.end('OK');
+  })
+};
+
+SentenceSchema.statics.getSentenceByUser = function(reqIn, resIn, callback){
+  console.log("user" + reqIn.body.user);
+  this.find({user : reqIn.body.user}, function(err, data){
+    console.log("alle sätze" + data);
     resIn.json(data);
     resIn.end('OK');
   })
@@ -40,10 +66,12 @@ SentenceSchema.statics.randomSentence = function(reqIn, resIn){
     }
     var rand = Math.floor(Math.random() * count);
     this.findOne().skip(rand).exec(function(err, data){
+      console.log(data);
       resIn.json(data);
       resIn.end('OK');
     });
   }.bind(this));
 };
+
 
 module.exports = mongoose.model('Sentence', SentenceSchema);

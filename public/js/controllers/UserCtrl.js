@@ -1,9 +1,11 @@
-angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', function($scope, $http, $location, $modal, $log, $templateCache) {
+angular.module('UserCtrl', []).controller('UserController', function($scope, $interval, $route, $http, $modal) {
 
-    // gets the top 5 sentences
-   $scope.init = function(){ $http({
+
+  
+   $scope.init = function(){console.log("params" + $route.current.params.user); $http({
         method: 'POST',
-        url: '/getTopFive'
+        url: '/getSentenceByUser',
+        data: $route.current.params
     }).success(function(data) {
         var sentences = [];
         data.forEach(function(entry) {
@@ -11,13 +13,13 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
             var totalVotes = entry.senseVote + entry.noSenseVote + entry.notSureVote;
 
             if (totalVotes != 0) {
-                console.log("total" + totalVotes + "no" + entry.noSenseVote);
+              
                 entry.percentage = (100 / totalVotes) * entry.noSenseVote;
             } else {
                 entry.percentage = 0;
             }
 
-            console.log("percentage" + entry.percentage);
+            console.log(entry.user);
             sentences.push(entry)
 
         });
@@ -29,9 +31,9 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
   };
 
     $scope.nextSentence = function(){
-      if($scope.currentSentenceId < 4 ){
+      if($scope.currentSentenceId < ($scope.sentences.length -1 )){
       $scope.currentSentenceId = $scope.currentSentenceId + 1;
-      } else if ($scope.currentSentenceId == 4){
+      } else if ($scope.currentSentenceId == ($scope.sentences.length -1)){
         $scope.currentSentenceId = 0;
       }
       $scope.sentence = $scope.sentences[$scope.currentSentenceId];
@@ -42,7 +44,7 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
       if($scope.currentSentenceId > 0 ){
       $scope.currentSentenceId = $scope.currentSentenceId - 1;
       } else if ($scope.currentSentenceId == 0){
-        $scope.currentSentenceId = 4;
+        $scope.currentSentenceId = ($scope.sentences.length -1 );
       }
       $scope.sentence = $scope.sentences[$scope.currentSentenceId];
       
@@ -108,8 +110,4 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
         });
     };
 
-$scope.showSentenceByUser = function(user){
-   $location.path('/user/' + user);
-}
-    
 });

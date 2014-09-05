@@ -19,13 +19,18 @@ angular.module('SentenceCtrl', []).controller('SentenceController', function($sc
  			if(captcha == 1){
  				$location.path('/');
  				$scope.captchaError = "";
+        $scope.aliasError = "";
 
  			} else if(captcha == 0) {
                $http({method: 'POST', url: '/getCaptcha'}).success(function (data){
      			$scope.captcha = data.replace(/"/g, ''); 
-     			$scope.captchaError = "Das Captcha war falsch veruchen sie es erneut"       
+     			$scope.captchaError = "Das Captcha war falsch veruchen sie es erneut" 
+          $scope.aliasError = "";      
      			});
- 			}
+ 			} else if (captcha == 2){
+        $scope.aliasError = "Der alias ist leider schon vergeben"
+        $scope.captchaError = "";   
+      }
 
  		});
             
