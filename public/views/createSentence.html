@@ -30,8 +30,9 @@
     </div>
     <div class="form-group ">
         <div class=" row">
-            <button id = "confirmButton" type="submit" class="btn btn-default col-xs-offset-1 col-xs-3 col-sm-offset-1 col-sm-3 col-md-offset-2 col-md-3 col-lg-offset-2 col-lg-3" ng-click="saveSentence();" ng-disabled="!createSentence.$valid">Abschicken</button>
-            <span id="errorMessage" class="error col-xs-6 col-sm-6  col-md-6 col-lg-6" ng-show="!createSentence.$valid">
+
+            <button id = "confirmButton" type="submit" class="btn btn-default col-xs-offset-1 col-xs-3 col-sm-offset-1 col-sm-3 col-md-offset-2 col-md-3 col-lg-offset-3 col-lg-2" ng-click="saveSentence();" ng-disabled="!createSentence.$valid">Abschicken</button>
+            <span id="errorMessage" class="error col-xs-6 col-sm-6  col-md-6 col-lg-5" ng-show="!createSentence.$valid">
                 Bitte füllen sie alle Felder aus !
             </span>
         </div>
@@ -42,7 +43,7 @@
         <div class="col-xs-5 col-sm-2 col-md-2">
             <input type="text" class="form-control col-xs-3 col-sm-2 col-md-2 " name="captcha" ng-model="captchaInput">
         </div>
-        <button type="button" class="btn btn-default col-xs-2 col-sm-1 col-md-1" ng-click="refresh()">
+        <button type="button" class=" btn btn-default col-xs-2 col-sm-1 col-md-1" ng-click="refresh()">
             <span class="glyphicon glyphicon-refresh"></span>
         </button>
         <p id='captchaError'>{{captchaError}}</p>

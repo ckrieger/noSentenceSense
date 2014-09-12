@@ -22,6 +22,8 @@ html, body {
 }
 .share {
     cursor: pointer;
+    margin-top: 10px;
+    
 }
 
 
@@ -49,7 +51,7 @@ html, body {
 }
 .nosensearea {
   background-image:url('../images/sentence_bg.png');
-height: 310px
+  height: 310px
 
   }
 
@@ -124,6 +126,10 @@ height: 310px
   cursor: default;
 }
 
+.voteButtons{
+  margin-top: 50px;
+
+}
  
 
 
@@ -132,6 +138,12 @@ height: 310px
   font-weight:lighter;
   color:#666;
    cursor: pointer;
+   text-align: left;
+}
+
+.reportSentence{
+text-align: right;
+cursor: pointer;
 }
 
 
@@ -141,6 +153,50 @@ height: 310px
   width:500px;
   font:28px Helvetica;
   color:#fff;
+}
+
+@media screen and (min-width: 992px){
+  .nosensearea {
+         background-image:url('../images/sentence_bg.png');
+          height: 350px;
+          margin-top: 50px;
+    }
+
+    .sentenceinfo {
+      background-color: rgba(24,22,29,.60);
+      height: 110px;
+      text-align: center;
+      padding-top: 35px;
+      margin-top: 50px;
+      font-size: 18px;
+  }
+   .sentenceActions{
+  margin-top: 320px;
+
+}
+
+.sentenceBoxHome {
+  
+  font:20px Helvetica;
+  color:#000;
+  font-weight:lighter;
+  text-align:center;
+  margin-top : 110px;
+  margin-bottom: 50px;
+  word-wrap:break-word;
+  cursor: default;
+
+}
+
+.previousSentence{
+  margin-top:  18%;
+ float:left
+}
+.nextSentence{
+ margin-top:  18%;
+ float:right
+}
+
 }
   
  @media screen and (max-width: 768px) {
@@ -152,7 +208,7 @@ height: 310px
         font-size:10px;
     }
 
-    .share {
+    .reportSentence {
         font-size:10px;
     }
     #confirmButton{
@@ -162,6 +218,7 @@ height: 310px
     .error{
       font-size: 10px;
     }
+    
   }
 
   @media screen and (max-width: 400px) {
@@ -170,9 +227,9 @@ height: 310px
           height: 300px
     }
     .sentenceActions{
-      margin-top: 100Fsenpx;
+      margin-top: 100px;
     }
-    .share {
+    .reportSentence {
         font-size:8px;
     }
 

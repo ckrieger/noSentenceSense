@@ -1,7 +1,16 @@
 <div  data-ng-init="init()" ng-controller="UserController">
     <div class="row">
         <div class="nosensearea row  col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label" ng-swipe-left="nextSentence()" ng-swipe-right="previousSentence()" >
-             <div class=" col-xs-offset-11 col-xs-1 col-sm-offset-11 col-sm-1 col-md-offset-11 col-md-1 col-lg-1" ng-Controller="UserController">
+
+            <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1" >
+                <img class="share" src='./images/thumbs-up-icon.png' ng-click="vote('2', sentence._id)">
+            </div>
+
+            <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1" >
+                <img class="share" src='./images/thumbs-down-icon.png' ng-click="vote('0', sentence._id)">
+            </div>
+
+             <div class=" col-xs-offset-9 col-xs-1 col-sm-offset-9 col-sm-1 col-md-offset-9 col-md-1 col-lg-1" ng-Controller="UserController">
                 <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
             </div>  
            
@@ -23,7 +32,7 @@
                     <strong>{{sentence.user}}</strong>
                 </div>
                     
-                <div ng-controller="ModalController" class="share col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+                <div ng-controller="ModalController" class="reportSentence col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
                     <strong ng-click="openMail('sm')">Satz melden!</strong>
                 </div>
             </div>
@@ -35,11 +44,7 @@
             
         </div>
     </div>
-    <div class="row visible-lg visible-md visible-sm visible-xs">
-        <button class="btn btn-primary " ng-click="vote('0', sentence._id)">Sense</button>
-      
-        <button class="btn btn-primary " ng-click="vote('2', sentence._id)">No Sense</button>
-   </div>
+   
 </div>
 
 <!-- html for the modal when user want to report a sentense -->
