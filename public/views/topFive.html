@@ -1,24 +1,32 @@
 <div data-ng-init="init()" ng-controller="TopFiveController">
     <div class="row">
-        <div class="nosensearea row  col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label" ng-swipe-left="nextSentence()" ng-swipe-right="previousSentence()">
+        <div class="nosensearea row  col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label" ng-swipe-left="nextSentence()" ng-swipe-right="previousSentence()" >
 
-            <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1" ng-Controller="TopFiveController">
+            <div class=" hidden-xs col-sm-1 col-md-1 col-lg-1" >
                 <img class="share" src='./images/thumbs-up-icon.png' ng-click="vote('2', sentence._id)">
             </div>
 
-            <div class=" col-xs-1 col-sm-1 col-md-1 col-lg-1" ng-Controller="TopFiveController">
+            <div class=" hidden-xs col-sm-1 col-md-1 col-lg-1" >
                 <img class="share" src='./images/thumbs-down-icon.png' ng-click="vote('0', sentence._id)">
             </div>
+            <!-- icons for mobile -->
+            <div ng-controller="MainController" class="visible-xs col-xs-5 mobileSentenceInfo">
+                 <strong >{{sentence.percentage | number : 0}} % Senseless</strong>
+            </div> 
+            <!--  -->
 
-            <div class=" col-xs-offset-9 col-xs-1 col-sm-offset-9 col-sm-1 col-md-offset-9 col-md-1 col-lg-1" ng-Controller="TopFiveController">
-                <img class="share" src='./images/share.png' ng-click="openShare('sm')">
-            </div>
-
+             <div class= " col-xs-3 col-sm-offset-3 col-sm-2 col-md-offset-3 col-md-2 col-lg-offset-3 col-lg-2 sentenceCounter" ng-Controller="UserController">
+                <strong>{{currentSentenceId+1}}/{{sentences.length }}</strong>
+             </div>
+             <div class=" col-xs-offset-2 col-xs-2 col-sm-offset-4 col-sm-1 col-md-offset-4 col-md-1 col-lg-offset-4 col-lg-1" ng-Controller="UserController">
+                <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
+            </div>  
+           
             <button type="button" class="btn btn-default hidden-xs col-sm-1 col-md-1 col-lg-1 previousSentence" ng-click="previousSentence()">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </button>
             <div class="sentenceBox   col-xs-1 visible-xs" itemprop="description">
-
+                
             </div>
             <div class="sentenceBox   col-xs-10 col-sm-10 col-md-10 col-lg-10" itemprop="description">
                 "{{sentence.sentenceText}}"
@@ -27,27 +35,31 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </button>
             <div class="row sentenceActions">
-                <div ng-click="showSentenceByUser(sentence.user)" class="autor col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+                <div class="autor col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
                     Made by
-                    <strong>{{sentence.user}}</strong>
+                    <strong ng-click="showSentenceByUser(sentence.user)">{{sentence.user}}</strong>
                 </div>
-
+                    
                 <div ng-controller="ModalController" class="reportSentence col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
                     <strong ng-click="openMail('sm')">Satz melden!</strong>
                 </div>
             </div>
         </div>
         <div class="sentenceinfo hidden-xs col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
-
-
-            <strong>{{sentence.percentage | number : 0}} % Senseless</strong>
             
-
+                
+               <strong> {{sentence.percentage | number : 0}} % Senseless </strong>
+            
         </div>
     </div>
-    
+    <!-- voteButtons for mobile -->
+    <div class="row visible-xs">
+        <button class="btn btn-primary btn-xs" ng-click="vote('2', sentence._id)">No Sense</button>
+        <button class="btn btn-primary btn-xs  " ng-click="vote('0', sentence._id)">Sense</button>
+    </div>
+    <!--  -->
+   
 </div>
-
 <!-- html for the modal when user want to report a sentense -->
 <script type="text/ng-template" id="mailModalContent.html">
     <div class="modal-header">

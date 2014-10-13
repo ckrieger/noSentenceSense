@@ -30,7 +30,7 @@ html, body {
 
 .mobileSentenceInfo{
   margin-top: 15px;
- font:14px Helvetica;
+ font:10px Helvetica;
   font-weight:lighter;
   color:#666;
    cursor: pointer;
@@ -241,7 +241,7 @@ cursor: pointer;
           height: 300px
     }
     .sentenceActions{
-      margin-top: 100px;
+      margin-top: 260px;
     }
     .reportSentence {
         font-size:8px;
@@ -251,6 +251,14 @@ cursor: pointer;
       margin-left: 20px;
       font-size:8px
     }
+    .sentenceCounter{
+  margin-top:18px;
+  font:10px Helvetica;
+  font-weight:lighter;
+  color:#666;
+   
+   text-align: center;
+}
   }
 
 
