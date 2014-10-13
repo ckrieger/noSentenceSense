@@ -10,7 +10,10 @@
                 <img class="share" src='./images/thumbs-down-icon.png' ng-click="vote('0', sentence._id)">
             </div>
 
-             <div class=" col-xs-offset-9 col-xs-1 col-sm-offset-9 col-sm-1 col-md-offset-9 col-md-1 col-lg-1" ng-Controller="UserController">
+             <div class= "col-xs-offset-3 col-xs-2 col-sm-offset-3 col-sm-2 col-md-offset-3 col-md-2 col-lg-offset-3 col-lg-2 sentenceCounter" ng-Controller="UserController">
+                <strong>{{currentSentenceId+1}} / {{sentences.length }}</strong>
+             </div>
+             <div class=" col-xs-offset-4 col-xs-1 col-sm-offset-4 col-sm-1 col-md-offset-4 col-md-1 col-lg-offset-4 col-lg-1" ng-Controller="UserController">
                 <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
             </div>  
            
@@ -58,7 +61,7 @@
                 <a class="text-muted share" ng-click="selected.item = item">{{ item }}</a>
             </li>
         </ul>
-        <div class="text-muted mouseArrow">Selected: <b>{{ selected.item }}</b> 
+        <div class="text-muted mouseArrow">Ausgewählter Grund: <b>{{ selected.item }}</b> 
         </div>
     </div>
     <div class="modal-footer">

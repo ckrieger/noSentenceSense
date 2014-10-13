@@ -28,7 +28,14 @@ html, body {
 
 
 
-
+.mobileSentenceInfo{
+  margin-top: 15px;
+ font:14px Helvetica;
+  font-weight:lighter;
+  color:#666;
+   cursor: pointer;
+   text-align: left;
+}
 
 .facebook {
   background-image:url('../images/facebook.png');
@@ -131,7 +138,14 @@ html, body {
 
 }
  
-
+.sentenceCounter{
+  margin-top:18px;
+  font:16px Helvetica;
+  font-weight:lighter;
+  color:#666;
+   
+   text-align: center;
+}
 
 .autor {
   font:14px Helvetica;
