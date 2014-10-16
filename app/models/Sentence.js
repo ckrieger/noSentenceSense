@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
     submissionDate : Date,
     senseVote : Number,
     noSenseVote : Number,
-    notSureVote : Number
+    percentageSenseless: Number
   });
 
 SentenceSchema.statics.checkAlias = function(reqIn, resIn, callback){
@@ -29,11 +29,17 @@ SentenceSchema.statics.checkAlias = function(reqIn, resIn, callback){
   })
 }
 SentenceSchema.statics.findTop5 = function( reqIn, resIn, callback) {
-  this.find({},{},{skip:0, limit:5, sort:{senseVoted: -1}}, function(err, data){
-      
-    resIn.json(data);
+  this.find().sort({percentageSenseless: -1}).limit(5).exec( 
+    function(err, data) {
+        resIn.json(data);
     resIn.end('OK');
-  })
+    }
+);
+  // this.find({},{},{skip:0, limit:5, sort:{senseVoted: -1}}, function(err, data){
+      
+  //   resIn.json(data);
+  //   resIn.end('OK');
+  // })
 };
 
 SentenceSchema.statics.getSentenceByUser = function(reqIn, resIn, callback){
@@ -46,17 +52,33 @@ SentenceSchema.statics.getSentenceByUser = function(reqIn, resIn, callback){
 };
 
 SentenceSchema.statics.vote = function(data, queryIn) {
-   this.update({
-    _id: data
-  }, queryIn, function(err, data) {
-    if (err) {
-      console.log('err while updating' + err);
+  if(queryIn == 2){
+    this.findOne({ _id: data }, function (err, doc){
+      doc.noSenseVote ++;
+      doc.percentageSenseless = (100 / (doc.senseVote + doc.noSenseVote)) * (doc.noSenseVote);
+      doc.save();
+    });
+  } 
+  else if(queryIn == 0) 
+  {
+    this.findOne({ _id: data }, function (err, doc){
+      doc.senseVote ++;
+      doc.percentageSenseless = (100 / (doc.senseVote + doc.noSenseVote)) * (doc.noSenseVote);
+      doc.save();
+    });
+  };
+
+  //  this.update({
+  //   _id: data
+  // }, queryIn, function(err, data) {
+  //   if (err) {
+  //     console.log('err while updating' + err);
       
-    } else {
-      console.log('updated Sentence');
+  //   } else {
+  //     console.log('updated Sentence');
       
-    };
-  });  
+  //   };
+  // });  
 };
 
 SentenceSchema.statics.randomSentence = function(reqIn, resIn){

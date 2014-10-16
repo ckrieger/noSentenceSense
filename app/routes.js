@@ -34,8 +34,7 @@ module.exports = function(app) {
                         submissionDate: new Date(),
                         senseVote: 0,
                         noSenseVote: 0,
-                        notSureVote: 0,
-                        percentage: 0
+                        percentageSenseless: 0
                     });
 
                     sentence.save(function(err) {
@@ -81,32 +80,14 @@ module.exports = function(app) {
     })
 
     app.post('/vote', function(req, res) {
-        if (req.body.vote == '0') {
-            sentenceModel.vote(req.body.id, {
-                $inc: {
-                    senseVote: 1
-                }
-            })
-        } else if (req.body.vote == '2') {
-            sentenceModel.vote(req.body.id, {
-                $inc: {
-                    noSenseVote: 1
-                }
-            })
-        } else if (req.body.vote == '1') {
-            sentenceModel.vote(req.body.id, {
-                $inc: {
-                    notSureVote: 1
-                }
-            })
-        }
+        sentenceModel.vote(req.body.id, req.body.vote);
         res.end('Voted')
     });
 
     app.post('/sendMail', function(req, res) {
         config.findOne(function(err, data) {
-            console.log(data);
-            mailer.sendMail(data.mail, data.mailPassword, data.mailAddressee, req.body.item);
+            console.log(req.body);
+            mailer.sendMail(data.mail, data.mailPassword, data.mailAddressee, req.body.reasonIn, req.body.sentenceId);
             res.end('Mail sent');
         });
 
