@@ -1,22 +1,30 @@
 angular.module('ModalCtrl', ['ui.bootstrap']).controller('ModalController', function($scope, $modal, $log, $templateCache, $http) {
 
-    $scope.items = ['sexistisch', 'rechtsradikal', 'andere'];
-    $scope.itemsShare = ['Facebook', 'Google+'];
-
-    $scope.openMail = function(size) {
-
+    $scope.items = {select: ['sexistisch', 'rechtsradikal', 'andere']};
+    
+    
+    $scope.openMail = function(size, sentenceId) {
+      
+        $scope.items.id = sentenceId;
+        
         var modalInstance = $modal.open({
             templateUrl: 'mailModalContent.html',
             controller: function($scope, $modalInstance, $templateCache, $http, items) {
-                $scope.items = items;
+                $scope.items = items.select;
                 $scope.selected = {
                     item: $scope.items[0]
                 };
+                $scope.id = items.id;
+               
                 $scope.ok = function() {
-                    $modalInstance.close($http({
+                     
+                    var dataIn = {sentenceId : $scope.id, reasonIn : $scope.selected};
+                    $modalInstance.close(
+                        
+                        $http({
                         method: 'POST',
                         url: '/sendMail',
-                        data: $scope.selected
+                        data: dataIn
                     }));
                 };
 

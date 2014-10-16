@@ -10,7 +10,7 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $in
         var sentences = [];
         data.forEach(function(entry) {
 
-            var totalVotes = entry.senseVote + entry.noSenseVote + entry.notSureVote;
+            var totalVotes = entry.senseVote + entry.noSenseVote;
 
             if (totalVotes != 0) {
               
@@ -64,12 +64,10 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $in
             if (entry._id == id) {
                 if (vote == 0) {
                     entry.senseVote++;
-                } else if (vote == 1) {
-                    entry.notSureVote++
                 } else if (vote == 2) {
                     entry.noSenseVote++
                 }
-                entry.percentage = (100 / (entry.senseVote + entry.noSenseVote + entry.notSureVote)) * entry.noSenseVote;
+                entry.percentage = (100 / (entry.senseVote + entry.noSenseVote )) * entry.noSenseVote;
             }
 
         });

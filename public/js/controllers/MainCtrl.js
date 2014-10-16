@@ -19,7 +19,7 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
             $scope.sentence = data;
             $location.path('/home/' +data._id);
             
-            var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote + $scope.sentence.notSureVote;
+            var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote;
             if (totalVotes != 0) {
                 $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
             } else {
@@ -40,7 +40,7 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
             }).success(function(back) {
                 $scope.sentence = back[0];
         
-                var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote + $scope.sentence.notSureVote;
+                var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
                 if (totalVotes != 0) {
                     $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
                 } else {
@@ -58,7 +58,7 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
            
             $scope.sentence = data;
             $location.path('/home/' +data._id);
-            var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote + $scope.sentence.notSureVote;
+            var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
             if (totalVotes != 0) {
                 $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
             } else {
@@ -79,7 +79,7 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
             }).success(function(back) {
                 $scope.sentence = back[0];
         
-                var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote + $scope.sentence.notSureVote;
+                var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
                 if (totalVotes != 0) {
                     $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
                 } else {
@@ -97,7 +97,7 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
            
             $scope.sentence = data;
             $location.path('/topFive/' +data._id);
-            var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote + $scope.sentence.notSureVote;
+            var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
             if (totalVotes != 0) {
                 $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
             } else {
@@ -125,12 +125,10 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
 
         if (vote == 0) {
             $scope.sentence.senseVote++;
-        } else if (vote == 1) {
-            $scope.sentence.notSureVote++
         } else if (vote == 2) {
             $scope.sentence.noSenseVote++
         }
-        $scope.sentence.percentage = (100 / ($scope.sentence.senseVote + $scope.sentence.noSenseVote + $scope.sentence.notSureVote)) * $scope.sentence.noSenseVote;
+        $scope.sentence.percentage = (100 / ($scope.sentence.senseVote + $scope.sentence.noSenseVote )) * $scope.sentence.noSenseVote;
     };
 
  $scope.openShare = function(size) {

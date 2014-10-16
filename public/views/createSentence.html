@@ -2,8 +2,8 @@
     <div class="form-group">
         </br>
         <div class="row">
-            <label for="inputAlias" class="visible-md visible-lg col-sm-2 col-md-2 col-lg-2 control-label">Alias</label>
-            <div class="col-xs-12  col-sm-12  col-md-10 col-lg-10">
+            <label for="inputAlias" class="visible-sm visible-md visible-lg col-sm-2 col-md-2 col-lg-2 control-label">Alias</label>
+            <div class="col-xs-12  col-sm-10  col-md-10 col-lg-10">
                 <input type="text" class="form-control" name="alias" placeholder="Alias" ng-model="user" required>
                 <p id='aliasError'>{{aliasError}}</p>
             </div>
@@ -12,40 +12,46 @@
     </div>
     <div class="form-group">
         <div class="row">
-            <label for="inputE-mail" class=" visible-md visible-lg col-xs-12 col-sm-2 col-md-2 col-lg-2  control-label">E-Mail</label>
-            <div class="col-xs-12  col-sm-12  col-md-10 col-lg-10">
+            <label for="inputE-mail" class=" visible-sm visible-md visible-lg col-sm-2 col-md-2 col-lg-2 control-label">E-Mail</label>
+            <div class="col-xs-12  col-sm-10  col-md-10 col-lg-10">
                 <input type="email" class="form-control" name="email" placeholder="Email" ng-model="mail" required>
-                
+
             </div>
 
         </div>
     </div>
     <div class="form-group">
         <div class="row">
-            <label for="inputSentence" class="visible-md visible-lg col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Your Sentence</label>
-            <div class="col-xs-12  col-sm-12  col-md-10 col-lg-10">
-                <textarea  style="resize: none;" class="form-control" rows="5" placeholder="Your Sentence" maxlength="150" ng-model="sentenceIn" required></textarea>
+            <label for="inputSentence" class="visible-sm visible-md visible-lg col-sm-2 col-md-2 col-lg-2 control-label">Your Sentence</label>
+            <div class="col-xs-12  col-sm-10  col-md-10 col-lg-10">
+                <textarea style="resize: none;" class="form-control" rows="5" placeholder="Your Sentence" maxlength="150" ng-model="sentenceIn" required></textarea>
             </div>
         </div>
     </div>
-    <div class="form-group ">
-        <div class=" row">
 
-            <button id = "confirmButton" type="submit" class="btn btn-default col-xs-offset-1 col-xs-3 col-sm-offset-1 col-sm-3 col-md-offset-2 col-md-3 col-lg-offset-3 col-lg-2" ng-click="saveSentence();" ng-disabled="!createSentence.$valid">Abschicken</button>
-            <span id="errorMessage" class="error col-xs-6 col-sm-6  col-md-6 col-lg-5" ng-show="!createSentence.$valid">
-                Bitte füllen sie alle Felder aus !
-            </span>
+    <div class="form-group">
+        <div class="row">
+
+            <div class="inputCaptcha col-xs-4 col-sm-offset-2 col-sm-3 col-md-3 col-lg-3">
+                <input type="text" class="form-control" name="captcha" ng-model="captchaInput">
+            </div>
+            <button type="button" class=" btn btn-default col-xs-2 col-sm-1 col-md-1 col-lg-1" ng-click="refresh()">
+                <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+            <img ng-src="data:image/jpeg;base64,{{captcha}}" class="col-xs-4 col-sm-2 col-md-2 col-lg-2"></img>
+            <p id='captchaError'>{{captchaError}}</p>
         </div>
     </div>
 
-    <div class="row">
-        <img ng-src="data:image/jpeg;base64,{{captcha}}" class="col-sm-2 col-md-2"></img>
-        <div class="col-xs-5 col-sm-2 col-md-2">
-            <input type="text" class="form-control col-xs-3 col-sm-2 col-md-2 " name="captcha" ng-model="captchaInput">
+    <div class="form-group ">
+        <div class=" row">
+            <div class="col-xs-4 col-sm-offset-2 col-sm-3  col-md-3  col-lg-3">
+               <button type="submit" class="confirmButton btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12 " ng-click="saveSentence();" ng-disabled="!createSentence.$valid">Abschicken</button>
+            </div>
+            
+            <span id="errorMessage" class="error col-xs-6 col-sm-6  col-md-5 col-lg-5" ng-show="!createSentence.$valid">
+                Bitte füllen sie alle Felder aus !
+            </span>
         </div>
-        <button type="button" class=" btn btn-default col-xs-2 col-sm-1 col-md-1" ng-click="refresh()">
-            <span class="glyphicon glyphicon-refresh"></span>
-        </button>
-        <p id='captchaError'>{{captchaError}}</p>
     </div>
 </form>

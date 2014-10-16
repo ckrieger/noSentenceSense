@@ -1,273 +1,221 @@
-/* Container start */
+
 
 html, body {
-  /*  background: url('../images/body_bg.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-  background: #2d3a42 url(images/body_gradient.png) repeat-x;
-  color: #9cc4dd;
- 
-  overflow-x: hidden;
-  text-shadow: 1px 1px 0 rgba(0,0,0,.25);
-  word-wrap: break-word;
+  
+    
+    background: #2d3a42 url(images/body_gradient.png) repeat-x;
+    color: #9cc4dd;
+    overflow-x: hidden;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .25);
+    word-wrap: break-word;
 }
-
-#confirmButton{
-  margin-left: 140px;
-}
-.mouseArrow{
-  cursor: default;
+.confirmButton {} .mouseArrow {
+    cursor: default;
 }
 .share {
     cursor: pointer;
     margin-top: 10px;
-    
 }
-
-
-
-.mobileSentenceInfo{
-  margin-top: 15px;
- font:10px Helvetica;
-  font-weight:lighter;
-  color:#666;
-   cursor: pointer;
-   text-align: left;
+.mobileSentenceInfo {
+    margin-top: 15px;
+    font: 10px Helvetica;
+    font-weight: lighter;
+    color: #666;
+    cursor: pointer;
+    text-align: left;
 }
-
 .facebook {
-  background-image:url('../images/facebook.png');
-  width: 100%;
-  height: 100%;
+    background-image: url('../images/facebook.png');
+    width: 100%;
+    height: 100%;
 }
-
-.erb-image-wrapper img{
-    max-width:100% !important;
-    height:auto;
-    display:block;
+.erb-image-wrapper img {
+    max-width: 100% !important;
+    height: auto;
+    display: block;
 }
-.nextSentence{
- margin-top:  25%;
- float:right
+.nextSentence {
+    margin-top: 25%;
+    float: right
 }
-.previousSentence{
-  margin-top:  25%;
- float:left
+.previousSentence {
+    margin-top: 25%;
+    float: left
+}
+.sentenceActions {
+    margin-top: 270px;
 }
 .nosensearea {
-  background-image:url('../images/sentence_bg.png');
-  height: 310px
-
-  }
-
-  .sentenceActions{
-  margin-top: 270px;
-
+    background-image: url('../images/sentence_bg.png');
+    height: 310px;
+    position: relative;
 }
-
-  
 .sentenceBox {
-  
-  font:20px Helvetica;
-  color:#000;
-  font-weight:lighter;
-  text-align:center;
-  margin-top : 100px;
-  margin-bottom: 50px;
-  word-wrap:break-word;
-  cursor: default;
-
+    position: absolute;
+    left: 8%;
+    top: 140px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: lighter;
+    word-wrap: break-word;
+    font: 20px Helvetica;
+    color: #000;
+    cursor: default;
 }
-
 .sentenceBoxHome {
-  
-  font:20px Helvetica;
-  color:#000;
-  font-weight:lighter;
-  text-align:center;
-  margin-top : 70px;
-  margin-bottom: 50px;
-  word-wrap:break-word;
-  cursor: default;
-
+    position: absolute;
+    left: 0px;
+    top: 140px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: lighter;
+    word-wrap: break-word;
+    font: 20px Helvetica;
+    color: #000;
+    cursor: default;
 }
-
-
-
 .sentencePhone {
-  font: 18px Helvetica;
-  color:#000;
-  font-weight:lighter;
-  display: table-cell;
-  vertical-align: middle;
-  text-align:center;
-  height:10em;
-  width:660px;
+    font: 18px Helvetica;
+    color: #000;
+    font-weight: lighter;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 10em;
+    width: 660px;
 }
-
 .topsentence {
-  font:28px Helvetica;
-  color:#000;
-  font-weight:lighter;
-
-  padding:0px 40px 40px 40px;
+    font: 28px Helvetica;
+    color: #000;
+    font-weight: lighter;
+    padding: 0px 40px 40px 40px;
 }
-
 .sentenceinfo {
-  background-color: rgba(24,22,29,.60);
-  height: 60px;
-  text-align: center;
-  }
-
+    background-color: rgba(24, 22, 29, .60);
+    height: 60px;
+    text-align: center;
+}
 .sentenceinfoMobile {
-  background-color: rgba(24,22,29,.60);
+    background-color: rgba(24, 22, 29, .60);
 }
-
 .infotext {
-  
-  font:  18px Futura;
-  font-weight:lighter;
-  color: #fff;
-  cursor: default;
+    font: 18px Futura;
+    font-weight: lighter;
+    color: #fff;
+    cursor: default;
 }
-
-.voteButtons{
-  margin-top: 50px;
-
+.voteButtons {
+    margin-top: 50px;
 }
- 
-.sentenceCounter{
-  margin-top:18px;
-  font:16px Helvetica;
-  font-weight:lighter;
-  color:#666;
-   
-   text-align: center;
+.sentenceCounter {
+    margin-top: 18px;
+    font: 16px Helvetica;
+    font-weight: lighter;
+    color: #666;
+    text-align: center;
 }
-
 .autor {
-  font:14px Helvetica;
-  font-weight:lighter;
-  color:#666;
-   cursor: pointer;
-   text-align: left;
+    font: 14px Helvetica;
+    font-weight: lighter;
+    color: #666;
+    cursor: pointer;
+    text-align: left;
+    bottom: 2;
+    left: 0;
+    position: absolute;
 }
-
-.reportSentence{
-text-align: right;
-cursor: pointer;
+.reportSentence {
+    text-align: right;
+    cursor: pointer;
+    bottom: 3;
+    right: 0;
+    position: absolute;
 }
-
-
 .autorheadline {
-  float:left;
-  margin-bottom:10px;
-  width:500px;
-  font:28px Helvetica;
-  color:#fff;
+    float: left;
+    margin-bottom: 10px;
+    width: 500px;
+    font: 28px Helvetica;
+    color: #fff;
 }
-
-@media screen and (min-width: 992px){
-  .nosensearea {
-         background-image:url('../images/sentence_bg.png');
-          height: 350px;
-          margin-top: 50px;
-    }
-
-    .sentenceinfo {
-      background-color: rgba(24,22,29,.60);
-      height: 110px;
-      text-align: center;
-      padding-top: 35px;
-      margin-top: 50px;
-      font-size: 18px;
-  }
-   .sentenceActions{
-  margin-top: 320px;
-
+.error {
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: left;
 }
-
-.sentenceBoxHome {
-  
-  font:20px Helvetica;
-  color:#000;
-  font-weight:lighter;
-  text-align:center;
-  margin-top : 110px;
-  margin-bottom: 50px;
-  word-wrap:break-word;
-  cursor: default;
-
-}
-
-.previousSentence{
-  margin-top:  18%;
- float:left
-}
-.nextSentence{
- margin-top:  18%;
- float:right
-}
-
-}
-  
- @media screen and (max-width: 768px) {
-    .infotext {
-        font-size:10px;
-    }
-
-    .autor {
-        font-size:10px;
-    }
-
-    .reportSentence {
-        font-size:10px;
-    }
-    #confirmButton{
-      margin-left: 20px;
-      font-size:10px
-    }
-    .error{
-      font-size: 10px;
-    }
-    
-  }
-
-  @media screen and (max-width: 400px) {
+@media screen and (min-width: 992px) {
     .nosensearea {
-         background-image:url('../images/sentence_bg.png');
-          height: 300px
+        background-image: url('../images/sentence_bg.png');
+        height: 350px;
+        
     }
-    .sentenceActions{
-      margin-top: 260px;
+    .sentenceinfo {
+        background-color: rgba(24, 22, 29, .60);
+        height: 110px;
+        text-align: center;
+        padding-top: 35px;
+        
+        font-size: 18px;
     }
-    .reportSentence {
-        font-size:8px;
+    .sentenceActions {
+        margin-top: 320px;
     }
-
-    #confirmButton{
-      margin-left: 20px;
-      font-size:8px
+    .previousSentence {
+        margin-top: 18%;
+        float: left
     }
-    .sentenceCounter{
-  margin-top:18px;
-  font:10px Helvetica;
-  font-weight:lighter;
-  color:#666;
-   
-   text-align: center;
-}
-  }
-
-
-
-
-
-
-
-
-
-
-
+    .nextSentence {
+        margin-top: 18%;
+        float: right
+    }
+    .error {
+        margin-top: 10px;
+        font-size: 12px;
+        text-align: left;
+    }
+    @media screen and (max-width: 991px) {
+        .infotext {
+            font-size: 10px;
+        }
+        .autor {
+            font-size: 10px;
+        }
+        .reportSentence {
+            font-size: 10px;
+        }
+    }
+    @media screen and (max-width: 766px) {
+        .infotext {
+            font-size: 10px;
+        }
+        .autor {
+            font-size: 10px;
+        }
+        .reportSentence {
+            font-size: 10px;
+        }
+        .error {
+            margin-top: 10px;
+            font-size: 12px;
+            text-align: left;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .nosensearea {
+            background-image: url('../images/sentence_bg.png');
+            height: 300px
+        }
+        .sentenceActions {
+            margin-top: 260px;
+        }
+        .reportSentence {
+            font-size: 8px;
+        }
+        .sentenceCounter {
+            margin-top: 18px;
+            font: 10px Helvetica;
+            font-weight: lighter;
+            color: #666;
+            text-align: center;
+        }
+    }
