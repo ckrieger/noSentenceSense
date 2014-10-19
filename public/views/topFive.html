@@ -1,7 +1,8 @@
 <div data-ng-init="init()" ng-controller="TopFiveController">
     <div class="row">
         <div class="nosensearea row  col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 control-label" ng-swipe-left="nextSentence()" ng-swipe-right="previousSentence()" >
-
+           
+        <!-- obere Reihe-->
             <div class=" hidden-xs col-sm-1 col-md-1 col-lg-1" >
                 <img class="thumbsUp" src='./images/thumbs-up-icon.png' ng-click="vote('2', sentence._id)">
             </div>
@@ -9,18 +10,29 @@
             <div class=" hidden-xs col-sm-1 col-md-1 col-lg-1" >
                 <img class="thumbsDown" src='./images/thumbs-down-icon.png' ng-click="vote('0', sentence._id)">
             </div>
+
+
+            <div ng-controller="MainController" class=" sentenceCounter hidden-xs  col-sm-8  col-md-8 col-lg-8">
+                {{currentSentenceId+1}}/{{sentences.length }}
+            </div> 
+            <div class="hidden-xs  col-sm-offset-1 col-sm-1   col-md-offset-1 col-md-1  col-lg-offset-1 col-lg-1">
+                <img  class="share" src='./images/share.png' ng-click ="openShare('sm')">
+            </div> 
+
             <!-- icons for mobile -->
             <div ng-controller="MainController" class="visible-xs col-xs-5 ">
-                 <strong class="mobileSentenceInfo">{{sentence.percentage | number : 0}} % Senseless</strong>
+                 <strong class= "mobileSentenceInfo">{{sentence.percentage | number : 0}} % Senseless</strong>
+            </div> 
+            <div ng-controller="MainController" class="mobileSentenceCounter visible-xs  col-xs-5">
+                {{currentSentenceId+1}}/{{sentences.length }}
+            </div> 
+
+            <div class="visible-xs col-xs-2 ">
+                <img  class="share" src='./images/share.png' ng-click ="openShare('sm')">
             </div> 
             <!--  -->
-
-             <div class= " col-xs-2 col-sm-offset-3 col-sm-2 col-md-offset-3 col-md-2 col-lg-offset-3 col-lg-2 " ng-Controller="UserController">
-                <strong clas="sentenceCounter">{{currentSentenceId+1}}/{{sentences.length }}</strong>
-             </div>
-             <div class=" col-xs-offset-4 col-xs-1 col-sm-offset-4 col-sm-1 col-md-offset-4 col-md-1 col-lg-offset-4 col-lg-1" ng-Controller="UserController">
-                <img class="share" src='./images/share.png' ng-click ="openShare('sm')">
-            </div>  
+        <!--  -->   
+           
            
             <button type="button" class="btn btn-default hidden-xs col-sm-1 col-md-1 col-lg-1 previousSentence" ng-click="previousSentence()">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -32,7 +44,7 @@
             <button type="button" class="btn btn-default hidden-xs col-sm-1 col-md-1 col-lg-1 nextSentence" ng-click="nextSentence()">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </button>
-            <div class="row sentenceActions">
+            <div class="row ">
                 <div class="autor col-xs-6 col-sm-4 col-md-4 col-lg-4 ">
                     Made by
                     <strong ng-click="showSentenceByUser(sentence.user)">{{sentence.user}}</strong>

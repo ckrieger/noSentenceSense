@@ -12,6 +12,10 @@ html, body {
 .confirmButton {} .mouseArrow {
     cursor: default;
 }
+.toprow{
+    height: 80px;
+
+}
 
 .buttonContainer{
     position: relative;
@@ -80,6 +84,11 @@ font-size: 14px;
     top:15px;
     left:0px;
 }
+.mobileSentenceCounter{
+  text-align: left;
+  top:10px;
+}
+
 .facebook {
     background-image: url('../images/facebook.png');
     width: 100%;
@@ -169,11 +178,7 @@ font-size: 14px;
     margin-top: 50px;
 }
 .sentenceCounter {
-    margin-top: 18px;
-    font: 16px Helvetica;
-    font-weight: lighter;
-    
-    text-align: center;
+     top:10px;
 }
 .autor {
     font: 14px Helvetica;
@@ -273,10 +278,11 @@ font-size: 14px;
         }
 
         .sentenceCounter {
-            margin-top: 18px;
+            
             font: 10px Helvetica;
             font-weight: lighter;
-            
+            position: absolute;
+             top:15;
             text-align: center;
         }
     }
