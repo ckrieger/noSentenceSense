@@ -12,17 +12,73 @@ html, body {
 .confirmButton {} .mouseArrow {
     cursor: default;
 }
+
+.buttonContainer{
+    position: relative;
+    height: 60px;
+
+}
+
+.buttonsVoteNoSense{
+    
+    bottom:0px;
+    left: 5px;
+    position: absolute;
+font-size: 14px;
+}
+
+
+
+.buttonsVoteSense{
+    
+    bottom:0px;
+    right:5px;
+    position: absolute;
+    font-size: 14px;
+  
+font-size: 14px;
+}
+
+ .thumbsUp{
+    cursor: pointer;
+    position: absolute;
+    top:10px;
+    left:0px;
+
+ }
+
+
+ .thumbsDown{
+    cursor: pointer;
+    position: absolute;
+    top:10px;
+    left:10px;
+ }
+
 .share {
     cursor: pointer;
-    margin-top: 10px;
+    position: absolute;
+    top:10px;
+    right:10px;
+    
+
+}
+
+.refresh{
+    cursor: pointer;
+    position: absolute;
+    top:10px;
+    right:0px;
+    
 }
 .mobileSentenceInfo {
-    margin-top: 15px;
     font: 10px Helvetica;
     font-weight: lighter;
     color: #666;
     cursor: pointer;
-    text-align: left;
+    position: absolute;
+    top:15px;
+    left:0px;
 }
 .facebook {
     background-image: url('../images/facebook.png');
@@ -35,12 +91,17 @@ html, body {
     display: block;
 }
 .nextSentence {
-    margin-top: 25%;
-    float: right
+    cursor: pointer;
+    position: absolute;
+    top:140px;
+    right:5px;
 }
 .previousSentence {
-    margin-top: 25%;
-    float: left
+    cursor: pointer;
+    position: absolute;
+    top:140px;
+    left:5px;
+    
 }
 .sentenceActions {
     margin-top: 270px;
@@ -111,7 +172,7 @@ html, body {
     margin-top: 18px;
     font: 16px Helvetica;
     font-weight: lighter;
-    color: #666;
+    
     text-align: center;
 }
 .autor {
@@ -120,14 +181,14 @@ html, body {
     color: #666;
     cursor: pointer;
     text-align: left;
-    bottom: 2;
+    bottom: 10.0px;
     left: 0;
     position: absolute;
 }
 .reportSentence {
     text-align: right;
     cursor: pointer;
-    bottom: 3;
+    bottom: 10.0px;
     right: 0;
     position: absolute;
 }
@@ -160,39 +221,34 @@ html, body {
     .sentenceActions {
         margin-top: 320px;
     }
-    .previousSentence {
-        margin-top: 18%;
-        float: left
-    }
-    .nextSentence {
-        margin-top: 18%;
-        float: right
-    }
+   
     .error {
         margin-top: 10px;
         font-size: 12px;
         text-align: left;
     }
+}
     @media screen and (max-width: 991px) {
         .infotext {
             font-size: 10px;
         }
         .autor {
             font-size: 10px;
+
         }
         .reportSentence {
             font-size: 10px;
         }
     }
-    @media screen and (max-width: 766px) {
+    @media screen and (max-width: 766px) and (min-width: 401){
         .infotext {
             font-size: 10px;
         }
         .autor {
-            font-size: 10px;
+            font-size: 2px;
         }
         .reportSentence {
-            font-size: 10px;
+            font-size: 8px;
         }
         .error {
             margin-top: 10px;
@@ -209,13 +265,18 @@ html, body {
             margin-top: 260px;
         }
         .reportSentence {
-            font-size: 8px;
+            font-size: 10px;
         }
+
+        .autor {
+            font-size: 10px;
+        }
+
         .sentenceCounter {
             margin-top: 18px;
             font: 10px Helvetica;
             font-weight: lighter;
-            color: #666;
+            
             text-align: center;
         }
     }
