@@ -19,15 +19,15 @@
                 <img  class="share" src='./images/share.png' ng-click ="openShare('sm')">
             </div> 
 
-            <!-- icons for mobile -->
-            <div ng-controller="MainController" class="visible-xs col-xs-5 ">
-                 <strong class= "mobileSentenceInfo">{{sentence.percentage | number : 0}} % Senseless</strong>
+           <!-- icons for mobile -->
+            <div ng-controller="MainController" class="visible-xs col-xs-4 ">
+                 <strong class= "mobileSentenceInfo">{{sentence.percentage | number : 0}} % </br> Senseless</strong>
             </div> 
-            <div ng-controller="MainController" class="mobileSentenceCounter visible-xs  col-xs-5">
+            <div ng-controller="MainController" class="mobileSentenceCounter visible-xs  col-xs-4">
                 {{currentSentenceId+1}}/{{sentences.length }}
             </div> 
 
-            <div class="visible-xs col-xs-2 ">
+            <div class="visible-xs col-xs-offset-2 col-xs-2 ">
                 <img  class="share" src='./images/share.png' ng-click ="openShare('sm')">
             </div> 
             <!--  -->

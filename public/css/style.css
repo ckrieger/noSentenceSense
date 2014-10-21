@@ -85,7 +85,7 @@ font-size: 14px;
     left:0px;
 }
 .mobileSentenceCounter{
-  text-align: left;
+  text-align: center;
   top:10px;
 }
 
@@ -245,7 +245,19 @@ font-size: 14px;
             font-size: 10px;
         }
     }
-    @media screen and (max-width: 766px) and (min-width: 401){
+    @media screen and (max-width: 766px) and (min-width: 401px){
+   .sentenceBox {
+    position: absolute;
+    left: 8%;
+    top: 140px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: lighter;
+    word-wrap: break-word;
+    font: 14px Helvetica;
+    color: #000;
+    cursor: default;
+    }
         .infotext {
             font-size: 10px;
         }
@@ -262,6 +274,18 @@ font-size: 14px;
         }
     }
     @media screen and (max-width: 400px) {
+        .sentenceBox {
+    position: absolute;
+    left: 8%;
+    top: 140px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: lighter;
+    word-wrap: break-word;
+    font: 14px Helvetica;
+    color: #000;
+    cursor: default;
+}
         .nosensearea {
             background-image: url('../images/sentence_bg.png');
             height: 300px
