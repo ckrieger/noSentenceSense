@@ -3,19 +3,19 @@
         <div class="nosensearea row  col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1  col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1 ">
         
              <div class=" hidden-xs col-sm-1 col-md-1 col-lg-1" >
-                <img class="thumbsUp" src='./images/thumbs-up-icon.png' ng-click="vote('2', sentence._id)">
+                <img class="thumbsUp" tooltip='No Sense' src='./images/thumbs-up-icon.png' ng-click="vote('2', sentence._id)">
             </div>
 
             <div class=" hidden-xs col-sm-1 col-md-1 col-lg-1" >
-                <img class="thumbsDown" src='./images/thumbs-down-icon.png' ng-click="vote('0', sentence._id)">
+                <img class="thumbsDown"  tooltip='Sense' src='./images/thumbs-down-icon.png' ng-click="vote('0', sentence._id)">
             </div>
 
 
             <div ng-controller="MainController" class="hidden-xs col-sm-offset-8 col-sm-1  col-md-offset-8 col-md-1 col-lg-offset-8 col-lg-1">
-                <img id='shareSentence' class="share" src='./images/share.png' ng-click ="openShare('sm')">
+                <img id='shareSentence' tooltip ='Share' class="share" src='./images/share.png' ng-click ="openShare('sm')">
             </div> 
             <div class="hidden-xs  col-sm-1   col-md-1  col-lg-1">
-                <img id='shareSentence' class="refresh" src='./images/refresh.png' ng-click ="refreshButton()">
+                <img id='shareSentence' tooltip ='Refresh' class="refresh" src='./images/refresh.png' ng-click ="refreshButton()">
             </div> 
 
             <!-- icons for mobile -->
@@ -23,11 +23,11 @@
                  <strong class= "mobileSentenceInfo">{{sentence.percentage | number : 0}} % Senseless</strong>
             </div> 
             <div ng-controller="MainController" class="visible-xs col-xs-offset-2 col-xs-2">
-                <img id='shareSentence' class="share " src='./images/share.png' ng-click ="openShare('sm')">
+                <img id='shareSentence' tooltip='Share' class="share " src='./images/share.png' ng-click ="openShare('sm')">
             </div> 
 
             <div class="visible-xs col-xs-2 ">
-                <img  class="refresh" src='./images/refreshMobile.png' ng-click ="refreshButton()">
+                <img  class="refresh" tooltip='Refresh'src='./images/refreshMobile.png' ng-click ="refreshButton()">
             </div> 
             <!--  -->
 
@@ -37,7 +37,7 @@
             <div class="row sentenceActions">
                 <div class="autor col-xs-6 col-sm-4 col-md-4 col-lg-4 ">
                     Made by
-                    <strong ng-click="showSentenceByUser(sentence.user)">{{sentence.user}}</strong>
+                    <strong class= 'autorInner'ng-click="showSentenceByUser(sentence.user)">{{sentence.user}}</strong>
                 </div>
                 <div ng-controller="ModalController" class="reportSentence col-xs-6  col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
                     <strong id='reportSentence'ng-click="openMail('sm', sentence._id)">Satz melden!</strong>
@@ -70,7 +70,7 @@
     <div class="modal-body">
         <ul>
             <li ng-repeat="item in items">
-                <a class="text-muted share" ng-click="selected.item = item">{{ item }}</a>
+                <a class="text-muted modalReport" ng-click="selected.item = item">{{ item }}</a>
             </li>
         </ul>
         <div class="text-muted mouseArrow">Ausgewählter Grund: <b>{{ selected.item }}</b> 
@@ -87,11 +87,11 @@
     <div class="modal-header">
         <h3 class="modal-title text-muted mouseArrow">Spread the senselessness</h3>
     </div>
-    <div class="modal-body">
+    <div id='text-to-copy' class="modal-body">
         {{shareLink}} 
     </div>
     <div class="modal-footer">
-  
+    <button class="btn btn-warning" >Add to Clipboard</button>
     <button class="btn btn-warning" ng-click="cancel()">Schließen</button>
     </div>
 </script>

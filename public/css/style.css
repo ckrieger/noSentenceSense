@@ -31,6 +31,9 @@ html, body {
 font-size: 14px;
 }
 
+.modalReport{
+    cursor: pointer;
+}
 
 
 .buttonsVoteSense{
@@ -164,6 +167,7 @@ font-size: 14px;
     background-color: rgba(24, 22, 29, .60);
     height: 60px;
     text-align: center;
+    cursor: default;
 }
 .sentenceinfoMobile {
     background-color: rgba(24, 22, 29, .60);
@@ -184,13 +188,20 @@ font-size: 14px;
     font: 14px Helvetica;
     font-weight: lighter;
     color: #666;
-    cursor: pointer;
+    cursor: default;
     text-align: left;
     bottom: 10.0px;
     left: 0;
     position: absolute;
 }
+
+.autorInner{
+    cursor: pointer;
+}
 .reportSentence {
+    font: 14px Helvetica;
+    font-weight: lighter;
+    color: #666;
     text-align: right;
     cursor: pointer;
     bottom: 10.0px;
@@ -246,6 +257,18 @@ font-size: 14px;
         }
     }
     @media screen and (max-width: 766px) and (min-width: 401px){
+        .sentenceBoxHome {
+    position: absolute;
+    left: 0px;
+    top: 140px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: lighter;
+    word-wrap: break-word;
+    font: 14px Helvetica;
+    color: #000;
+    cursor: default;
+}
    .sentenceBox {
     position: absolute;
     left: 8%;
@@ -274,6 +297,18 @@ font-size: 14px;
         }
     }
     @media screen and (max-width: 400px) {
+        .sentenceBoxHome {
+    position: absolute;
+    left: 0px;
+    top: 140px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: lighter;
+    word-wrap: break-word;
+    font: 14px Helvetica;
+    color: #000;
+    cursor: default;
+}
         .sentenceBox {
     position: absolute;
     left: 8%;
