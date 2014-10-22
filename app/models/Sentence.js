@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+     Schema  = mongoose.Schema;
 
   var SentenceSchema = new Schema({
     sentenceText : String,
@@ -11,15 +11,13 @@ var mongoose = require('mongoose'),
     percentageSenseless: Number
   });
 
+// Checks if the alias was used by another user
 SentenceSchema.statics.checkAlias = function(reqIn, resIn, callback){
   var query = reqIn.body.user;
-
   this.find({user : query}, function(err, data){
     if(err){
       console.log("error");
     } else {
-     console.log("was gefunden" + data[0]);
-      
       if( data.length == 0 ||data[0].mail === reqIn.body.mail  ){
         callback(true);
       } else{
@@ -28,29 +26,26 @@ SentenceSchema.statics.checkAlias = function(reqIn, resIn, callback){
     }
   })
 }
+
+// get the 5 best rated sentences
 SentenceSchema.statics.findTop5 = function( reqIn, resIn, callback) {
   this.find().sort({percentageSenseless: -1}).limit(5).exec( 
     function(err, data) {
-        resIn.json(data);
-    resIn.end('OK');
+      resIn.json(data);
+      resIn.end('OK');
     }
-);
-  // this.find({},{},{skip:0, limit:5, sort:{senseVoted: -1}}, function(err, data){
-      
-  //   resIn.json(data);
-  //   resIn.end('OK');
-  // })
+  );
 };
 
+// get all sentences of a given user 
 SentenceSchema.statics.getSentenceByUser = function(reqIn, resIn, callback){
-  console.log("user" + reqIn.body.user);
   this.find({user : reqIn.body.user}, function(err, data){
-    console.log("alle sätze" + data);
     resIn.json(data);
     resIn.end('OK');
   })
 };
 
+// updates the rating for a sentence 
 SentenceSchema.statics.vote = function(data, queryIn) {
   if(queryIn == 2){
     this.findOne({ _id: data }, function (err, doc){
@@ -67,20 +62,9 @@ SentenceSchema.statics.vote = function(data, queryIn) {
       doc.save();
     });
   };
-
-  //  this.update({
-  //   _id: data
-  // }, queryIn, function(err, data) {
-  //   if (err) {
-  //     console.log('err while updating' + err);
-      
-  //   } else {
-  //     console.log('updated Sentence');
-      
-  //   };
-  // });  
 };
 
+// get a random sentence 
 SentenceSchema.statics.randomSentence = function(reqIn, resIn){
   this.count(function(err, count){
     if(err){
@@ -88,7 +72,6 @@ SentenceSchema.statics.randomSentence = function(reqIn, resIn){
     }
     var rand = Math.floor(Math.random() * count);
     this.findOne().skip(rand).exec(function(err, data){
-      console.log(data);
       resIn.json(data);
       resIn.end('OK');
     });

@@ -27,6 +27,14 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $in
         $scope.sentences = sentences;
         $scope.sentence = $scope.sentences[0]
         $scope.currentSentenceId = 0;
+        if ($scope.sentences.length == 1)
+        {
+            $scope.Disable = true;
+        } 
+        else
+        {
+            $scope.Disable = false;
+        }
     });
   };
 

@@ -41,33 +41,5 @@ angular.module('ModalCtrl', ['ui.bootstrap']).controller('ModalController', func
         });
     };
 
-     $scope.openShare = function(size) {
-
-        var modalInstance = $modal.open({
-            templateUrl: 'shareModalContent.html',
-            controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
-                $scope.itemsShare = itemsShare;
-                $scope.selected = {
-                    item: $scope.itemsShare[0]
-                };
-                $scope.ok = function() {
-                    /*$modalInstance.close($http({
-                        method: 'POST',
-                        url: '/hh',
-                        data: 
-                    }));*/
-                };
-
-                $scope.cancel = function() {
-                    $modalInstance.dismiss('cancel');
-                };
-            },
-            size: size,
-            resolve: {
-                itemsShare: function() {
-                    return $scope.itemsShare;
-                }
-            }
-        });
-    };
+     
 });

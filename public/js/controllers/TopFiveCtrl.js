@@ -79,7 +79,6 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
        
       
         $scope.itemsShare = $scope.sentence._id;
-        console.log($scope.itemsShare);
         var modalInstance = $modal.open({
             templateUrl: 'shareModalContent.html',
             controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {

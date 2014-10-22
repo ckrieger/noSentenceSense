@@ -31,7 +31,7 @@
             </div> 
             <!--  -->
 
-            <div class="sentenceBoxHome col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10" itemprop="description">
+            <div class="sentenceBoxHome col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10" itemprop="description">
                "{{sentence.sentenceText}}"
             </div>
             <div class="row sentenceActions">
@@ -40,7 +40,7 @@
                     <strong class= 'autorInner'ng-click="showSentenceByUser(sentence.user)">{{sentence.user}}</strong>
                 </div>
                 <div ng-controller="ModalController" class="reportSentence col-xs-6  col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
-                    <strong id='reportSentence'ng-click="openMail('sm', sentence._id)">Satz melden!</strong>
+                    <strong id='reportSentence'ng-click="openMail('sm', sentence._id)">Report Sentence!</strong>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
 <!-- html for the modal when user want to report a sentense -->
 <script type="text/ng-template" id="mailModalContent.html">
     <div class="modal-header">
-        <h3 class="modal-title text-muted mouseArrow">Warum wollen sie den Satz melden ?</h3>
+        <h3 class="modal-title text-muted">Warum wollen sie den Satz melden ?</h3>
     </div>
     <div class="modal-body">
         <ul>
@@ -73,7 +73,7 @@
                 <a class="text-muted modalReport" ng-click="selected.item = item">{{ item }}</a>
             </li>
         </ul>
-        <div class="text-muted mouseArrow">Ausgewählter Grund: <b>{{ selected.item }}</b> 
+        <div class="text-muted">Ausgewählter Grund: <b>{{ selected.item }}</b> 
         </div>
     </div>
     <div class="modal-footer">
@@ -85,7 +85,7 @@
 <!-- html for the modal when user want to share a sentense -->
 <script type="text/ng-template" id="shareModalContent.html">
     <div class="modal-header">
-        <h3 class="modal-title text-muted mouseArrow">Spread the senselessness</h3>
+        <h3 class="modal-title text-muted">Spread the senselessness</h3>
     </div>
     <div id='text-to-copy' class="modal-body">
         {{shareLink}} 
