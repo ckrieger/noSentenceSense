@@ -2,8 +2,11 @@ angular.module('HeaderCtrl', []).controller('HeaderController', function($scope,
 
 
     $scope.isActive = function (viewLocation) { 
-        return viewLocation === $location.path();
+    	var s = $location.path();
+    	
+        return s.indexOf(viewLocation) > -1;
     };
 
+   
 
 });

@@ -1,5 +1,6 @@
 angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', function($scope, $http, $location, $modal, $log, $templateCache) {
 
+    
     // gets the top 5 sentences
    $scope.init = function(){ $http({
         method: 'POST',
@@ -38,6 +39,7 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
       
     };
 
+
     $scope.previousSentence = function(){
       if($scope.currentSentenceId > 0 ){
       $scope.currentSentenceId = $scope.currentSentenceId - 1;
@@ -74,22 +76,22 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
     $scope.goToCreateSentence = function() {
         $location.path('/createSentence');
     }
+
+    
     
     $scope.openShare = function(size) {
        
       
         $scope.itemsShare = $scope.sentence._id;
         var modalInstance = $modal.open({
-            templateUrl: 'shareModalContent.html',
+            templateUrl: 'shareModalContentTopFive.html',
             controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
                 $scope.itemsShare = itemsShare
                 $scope.shareLink = "http://no-sentence-sense.herokuapp.com/home/" + itemsShare ;
                 $scope.ok = function() {
-                    /*$modalInstance.close($http({
-                        method: 'POST',
-                        url: '/hh',
-                        data: 
-                    }));*/
+                    
+        return "http://no-sentence-sense.herokuapp.com/home/" + itemsShare;
+    
                 };
 
                 $scope.cancel = function() {

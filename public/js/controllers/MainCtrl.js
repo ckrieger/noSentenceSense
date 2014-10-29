@@ -1,5 +1,7 @@
 angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', function($scope, $http, $location, $modal, $route ,$log, $templateCache) {
-
+    $scope.getTextToCopy = function() {
+        return $location.host() + $location.url();
+    }
 
 
     $scope.goToCreateSentence = function() {
@@ -38,13 +40,17 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
                 url: '/getSentenceById',
                 data: $route.current.params
             }).success(function(back) {
+
                 $scope.sentence = back[0];
-        
-                var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
-                if (totalVotes != 0) {
-                    $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
-                } else {
-                    $scope.sentence.percentage = 0;
+                if ($scope.sentence != undefined){
+                    var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
+                    if (totalVotes != 0) {
+                        $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
+                    } else {
+                        $scope.sentence.percentage = 0;
+                    }
+                } else if ($scope.sentence == undefined){
+                    $location.path('/home')
                 }
             });
 
@@ -136,15 +142,11 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
         var modalInstance = $modal.open({
             templateUrl: 'shareModalContent.html',
             controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
-                $scope.shareLink = "http://no-sentence-sense.herokuapp.com/" + $location.url();
+                $scope.shareLink = $location.host() + $location.url();
                 $scope.ok = function() {
-                    /*$modalInstance.close($http({
-                        method: 'POST',
-                        url: '/hh',
-                        data: 
-                    }));*/
+                    
                 };
-
+                
                 $scope.cancel = function() {
                     $modalInstance.dismiss('cancel');
                 };

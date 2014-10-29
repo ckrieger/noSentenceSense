@@ -11,19 +11,25 @@
     <!--    CSS -->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" type='text/css'>
 
+
     <link rel="stylesheet" href="css/bootstrap.css" type='text/css'>
     <link rel="stylesheet" href="css/style.css" type='text/css'>
-    <link rel="stylesheet" href="css/addbox.css" type='text/css'>
-    <link rel="stylesheet" href="css/thickbox.css" type='text/css'>
+
 
 
 
     <!-- JS -->
+   
+   
     <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/zeroclipboard/dist/ZeroClipboard.min.js"></script>
+    <script src="libs/ng-clip/src/ngClip.js"></script>
     <script src="https://code.angularjs.org/1.2.9/angular-animate.js"></script>
     <script src="libs/angular-route/angular-route.min.js"></script>
     <script src="libs/bootstrap-gh-pages/ui-bootstrap-tpls-0.11.0.min.js"></script>
     <script src="libs/angular-touch/angular-touch.min.js"></script>
+   
+
 
 
     <!-- ANGULAR CUSTOM -->
@@ -47,10 +53,10 @@
                     <div class="inner row">
                         
                         <div class="erb-image-wrapper col-sm-6 col-md-6 col-lg-6">
-                            <img src='./images/logo.png'>
+                           <a href="/home"> <img src='./images/logo.png' ></a>
                         </div>
                         <ul class="nav masthead-nav" ng-controller="HeaderController">
-                            <li id="home" ng-class="{ active: isActive('/')}"><a href="/">Home</a>
+                            <li id="home" ng-class="{ active: isActive('/home')}"><a href="/home">Home</a>
                             </li>
                             <li id="topFive" ng-class="{ active: isActive('/topFive')}"><a href="/topFive">Top Five</a>
                             </li>

@@ -96,11 +96,7 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $in
                 $scope.itemsShare = itemsShare
                 $scope.shareLink = "http://no-sentence-sense.herokuapp.com/home/" + itemsShare ;
                 $scope.ok = function() {
-                    /*$modalInstance.close($http({
-                        method: 'POST',
-                        url: '/hh',
-                        data: 
-                    }));*/
+                    return "http://no-sentence-sense.herokuapp.com/home/" + itemsShare;
                 };
 
                 $scope.cancel = function() {
