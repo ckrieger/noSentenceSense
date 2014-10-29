@@ -6,6 +6,7 @@ html, body {
     word-wrap: break-word;
     cursor: default;
 }
+
 .buttonContainer {
     position: relative;
     height: 60px;
@@ -91,7 +92,10 @@ html, body {
 .sentenceBox {
     position: absolute;
     left: 8%;
-    top: 130px;
+    top: 35px;
+     height: 240px;
+    display: table;
+    table-layout: fixed;
     vertical-align: middle;
     text-align: center;
     font-weight: lighter;
@@ -100,10 +104,19 @@ html, body {
     color: #000;
     cursor: default;
 }
+
+.sentenceBox p{
+    display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
 .sentenceBoxHome {
     position: absolute;
     left: 0px;
-    top: 130px;
+    top: 35px;
+    height: 240px;
+    display: table;
+    table-layout: fixed;
     vertical-align: middle;
     text-align: center;
     font-weight: lighter;
@@ -111,6 +124,12 @@ html, body {
     font: 20px Helvetica;
     color: #000;
     cursor: default;
+}
+
+.sentenceBoxHome p{
+    display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
 }
 .topsentence {
     font: 28px Helvetica;
@@ -198,28 +217,14 @@ html, body {
 }
 @media screen and (max-width: 991px) {
     .sentenceBoxHome {
-        position: absolute;
-        left: 0px;
-        top: 130px;
-        vertical-align: middle;
-        text-align: center;
-        font-weight: lighter;
-        word-wrap: break-word;
+        
         font: 15px Helvetica;
-        color: #000;
-        cursor: default;
+        
     }
     .sentenceBox {
-        position: absolute;
-        left: 8%;
-        top: 130px;
-        vertical-align: middle;
-        text-align: center;
-        font-weight: lighter;
-        word-wrap: break-word;
+        
         font: 15px Helvetica;
-        color: #000;
-        cursor: default;
+        
     }
     .infotext {
         font-size: 10px;
@@ -233,28 +238,14 @@ html, body {
 }
 @media screen and (max-width: 766px) and (min-width: 401px) {
     .sentenceBoxHome {
-        position: absolute;
-        left: 0px;
-        top: 130px;
-        vertical-align: middle;
-        text-align: center;
-        font-weight: lighter;
-        word-wrap: break-word;
+       
         font: 14px Helvetica;
-        color: #000;
-        cursor: default;
+       
     }
     .sentenceBox {
-        position: absolute;
-        left: 8%;
-        top: 130px;
-        vertical-align: middle;
-        text-align: center;
-        font-weight: lighter;
-        word-wrap: break-word;
+       
         font: 14px Helvetica;
-        color: #000;
-        cursor: default;
+       
     }
     .infotext {
         font-size: 10px;
@@ -273,28 +264,14 @@ html, body {
 }
 @media screen and (max-width: 400px) {
     .sentenceBoxHome {
-        position: absolute;
-        left: 0px;
-        top: 140px;
-        vertical-align: middle;
-        text-align: center;
-        font-weight: lighter;
-        word-wrap: break-word;
+        
         font: 12px Helvetica;
-        color: #000;
-        cursor: default;
+        
     }
     .sentenceBox {
-        position: absolute;
-        left: 8%;
-        top: 140px;
-        vertical-align: middle;
-        text-align: center;
-        font-weight: lighter;
-        word-wrap: break-word;
+        
         font: 12px Helvetica;
-        color: #000;
-        cursor: default;
+       
     }
     .nosensearea {
         background-image: url('../images/sentence_bg.png');
@@ -316,4 +293,5 @@ html, body {
         top: 15;
         text-align: center;
     }
+    
 }

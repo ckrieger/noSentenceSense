@@ -89,9 +89,9 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
                 $scope.itemsShare = itemsShare
                 $scope.shareLink = $location.host() + "/home/" + itemsShare ;
                 $scope.ok = function() {
+                    $modalInstance.dismiss('cancel');
+                    return $location.host() + "/home/" + itemsShare;
                     
-        return $location.host() + "/home/" + itemsShare;
-    
                 };
 
                 $scope.cancel = function() {

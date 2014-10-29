@@ -144,7 +144,7 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
             controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
                 $scope.shareLink = $location.host() + $location.url();
                 $scope.ok = function() {
-                    
+                    $modalInstance.dismiss('cancel');
                 };
                 
                 $scope.cancel = function() {

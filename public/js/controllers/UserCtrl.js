@@ -1,4 +1,4 @@
-angular.module('UserCtrl', []).controller('UserController', function($scope, $interval, $route, $http, $modal) {
+angular.module('UserCtrl', []).controller('UserController', function($scope, $interval, $route, $http, $modal, $location) {
 
 
   
@@ -96,10 +96,12 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $in
                 $scope.itemsShare = itemsShare
                 $scope.shareLink = $location.host() + "/home/" + itemsShare ;
                 $scope.ok = function() {
+                    $modalInstance.dismiss('cancel');
                     return $location.host() + "/home/" + itemsShare;
                 };
 
                 $scope.cancel = function() {
+
                     $modalInstance.dismiss('cancel');
                 };
             },
