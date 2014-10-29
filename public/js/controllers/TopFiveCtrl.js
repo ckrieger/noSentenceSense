@@ -87,10 +87,10 @@ angular.module('TopFiveCtrl', ['ngTouch']).controller('TopFiveController', funct
             templateUrl: 'shareModalContentTopFive.html',
             controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
                 $scope.itemsShare = itemsShare
-                $scope.shareLink = "http://no-sentence-sense.herokuapp.com/home/" + itemsShare ;
+                $scope.shareLink = $location.host() + "/home/" + itemsShare ;
                 $scope.ok = function() {
                     
-        return "http://no-sentence-sense.herokuapp.com/home/" + itemsShare;
+        return $location.host() + "/home/" + itemsShare;
     
                 };
 

@@ -94,9 +94,9 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $in
             templateUrl: 'shareModalContent.html',
             controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
                 $scope.itemsShare = itemsShare
-                $scope.shareLink = "http://no-sentence-sense.herokuapp.com/home/" + itemsShare ;
+                $scope.shareLink = $location.host() + "/home/" + itemsShare ;
                 $scope.ok = function() {
-                    return "http://no-sentence-sense.herokuapp.com/home/" + itemsShare;
+                    return $location.host() + "/home/" + itemsShare;
                 };
 
                 $scope.cancel = function() {
