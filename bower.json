@@ -6,7 +6,11 @@
     "angular": "latest",
     "angular-route": "latest",
     "angular-bootstrap": "latest",
-    "angular-touch": "latest"
+    "angular-touch": "latest",
+    "angular-animate": "~1.2.17",
+    "zeroclipboard": "latest",
+    "ng-clip": "latest"
+
   },
   "resolutions": {
     "angular": "1.2.21"
