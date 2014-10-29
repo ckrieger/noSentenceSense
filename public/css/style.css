@@ -87,6 +87,7 @@ html, body {
 .nosensearea {
     background-image: url('../images/sentence_bg.png');
     height: 310px;
+    border-radius: 6px;
     position: relative;
 }
 .sentenceBox {
@@ -124,6 +125,7 @@ html, body {
     font: 20px Helvetica;
     color: #000;
     cursor: default;
+
 }
 
 .sentenceBoxHome p{
@@ -142,6 +144,7 @@ html, body {
     height: 60px;
     text-align: center;
     cursor: default;
+    border-radius: 6px;
 }
 .infotext {
     font: 18px Futura;
