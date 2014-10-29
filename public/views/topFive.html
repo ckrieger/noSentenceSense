@@ -51,7 +51,7 @@
                 </div>
                     
                 <div ng-controller="ModalController" class="reportSentence col-xs-6  col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
-                    <strong ng-click="openMail('sm')">Report Sentence!</strong>
+                    <strong ng-click="openMail('md',sentence._id)">Report Sentence!</strong>
                 </div>
             </div>
         </div>
@@ -72,35 +72,34 @@
     <!--  -->
 </div>
 <!-- html for the modal when user want to report a sentense -->
-<script type="text/ng-template" id="mailModalContent.html">
+<script type="text/ng-template" id="mailModalContent.html" ng-controller="ModalController">
     <div class="modal-header">
-        <h3 class="modal-title text-muted">Warum wollen sie den Satz melden ?</h3>
+        <h3 class="modal-title text-muted">Why do you want to report this sentence?</h3>
     </div>
     <div class="modal-body">
-        <ul>
-            <li ng-repeat="item in items">
-                <a class="text-muted modalReport" ng-click="selected.item = item">{{ item }}</a>
-            </li>
-        </ul>
-        <div class="text-muted">Ausgewählter Grund: <b>{{ selected.item }}</b> 
-        </div>
+        <form class="form-horizontal" role="form" name="reasonForm">
+            <div class="">
+                <textarea style="resize: none;" rows ='5' maxlength = "300" type="text" class="form-control" name="reason" placeholder="Please explain your report" ng-model="reason" required></textarea>
+            </div>
+        </form>
     </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="ok()">Satz melden !</button>
+    <div class="modal-footer" ng-controller="ModalController">
+        <button class="btn btn-primary" ng-click="ok(reason)" ng-disabled="!reasonForm.$valid">Report Sentence!</button>
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </script>
 
+
 <!-- html for the modal when user want to share a sentense -->
-<script type="text/ng-template" id="shareModalContent.html">
+<script type="text/ng-template" id="shareModalContentTopFive.html">
     <div class="modal-header">
         <h3 class="modal-title text-muted">Spread the senselessness</h3>
     </div>
     <div class="modal-body">
         {{shareLink}} 
     </div>
-    <div class="modal-footer">
-  
-    <button class="btn btn-warning" ng-click="cancel()">Schließen</button>
+    <div class="modal-footer" ng-controller="TopFiveController">
+    <button class="btn btn-warning" clip-copy="ok()">Add to Clipboard</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </script>
