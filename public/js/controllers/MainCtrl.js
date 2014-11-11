@@ -1,8 +1,4 @@
 angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', function($scope, $http, $location, $modal, $route ,$log, $templateCache) {
-    $scope.getTextToCopy = function() {
-        return $location.host() + $location.url();
-    }
-
 
     $scope.goToCreateSentence = function() {
         $location.path('/createSentence');
@@ -28,50 +24,56 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
                 $scope.sentence.percentage = 0;
             }
         });
-      
-    }
+      }
 
     $scope.refresh = function() {
-        
         if ($route.current.params.sentenceId != undefined ) {
-    
             $http({
                 method: 'POST',
                 url: '/getSentenceById',
                 data: $route.current.params
             }).success(function(back) {
-
                 $scope.sentence = back[0];
-                if ($scope.sentence != undefined){
+                if ($scope.sentence != undefined)
+                {
                     var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
-                    if (totalVotes != 0) {
+                    if (totalVotes != 0) 
+                    {
                         $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
-                    } else {
+                    } 
+                    else 
+                    {
                         $scope.sentence.percentage = 0;
                     }
-                } else if ($scope.sentence == undefined){
+                } 
+                else if ($scope.sentence == undefined)
+                {
                     $location.path('/home')
                 }
             });
 
         }
-        else {
+        else 
+        {
           
-        $http({
-            method: 'POST',
-            url: '/getRandomSentence'
-        }).success(function(data) {
+            $http({
+                method: 'POST',
+                url: '/getRandomSentence'
+            }).success(function(data) {
            
-            $scope.sentence = data;
-            $location.path('/home/' +data._id);
-            var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
-            if (totalVotes != 0) {
-                $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
-            } else {
-                $scope.sentence.percentage = 0;
-            }
-        });
-      }
+                $scope.sentence = data;
+                $location.path('/home/' +data._id);
+                var totalVotes = $scope.sentence.senseVote + $scope.sentence.noSenseVote ;
+                if (totalVotes != 0) 
+                {
+                    $scope.sentence.percentage = (100 / totalVotes) * $scope.sentence.noSenseVote;
+                } 
+                else 
+                {
+                    $scope.sentence.percentage = 0;
+                }
+            });
+        }
     }
 
     $scope.refreshTopFive = function() {
@@ -127,8 +129,6 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
             data: data
         });
         // berechnet die Prozente ohne neu zu laden
-
-
         if (vote == 0) {
             $scope.sentence.senseVote++;
         } else if (vote == 2) {
@@ -137,14 +137,14 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
         $scope.sentence.percentage = (100 / ($scope.sentence.senseVote + $scope.sentence.noSenseVote )) * $scope.sentence.noSenseVote;
     };
 
- $scope.openShare = function(size) {
-
-        var modalInstance = $modal.open({
-            templateUrl: 'shareModalContent.html',
-            controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
-                $scope.shareLink = $location.host() + $location.url();
+$scope.openShare = function(size) {
+    var modalInstance = $modal.open({
+        templateUrl: 'shareModalContent.html',
+        controller: function($scope, $modalInstance, $templateCache, $http, itemsShare) {
+            $scope.shareLink = $location.host() + $location.url();
                 $scope.ok = function() {
                     $modalInstance.dismiss('cancel');
+                    return $location.host() + $location.url();
                 };
                 
                 $scope.cancel = function() {
@@ -157,8 +157,8 @@ angular.module('MainCtrl', ['ui.bootstrap']).controller('MainController', functi
                     return $scope.itemsShare;
                 }
             }
-        });
-    };
+    });
+};
 
 $scope.showSentenceByUser = function(user){
    $location.path('/user/' + user);
