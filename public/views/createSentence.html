@@ -4,7 +4,7 @@
         <div class="row">
             <label for="inputAlias" class="visible-sm visible-md visible-lg col-sm-2 col-md-2 col-lg-2 control-label">Alias</label>
             <div class="col-xs-12  col-sm-10  col-md-10 col-lg-10">
-                <input type="text" class="form-control" name="alias" placeholder="Alias" ng-model="user" required>
+                <input type="text" maxlength="10" class="form-control" name="alias" placeholder="Alias" ng-model="user" required>
                 <p id='aliasError'>{{aliasError}}</p>
             </div>
 
